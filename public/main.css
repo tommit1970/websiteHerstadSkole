@@ -1,0 +1,13 @@
+/*Connection testing*/
+body {
+	background: green;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*Main window*/
+#mainwindow {
+	background: #44ff33;
+	display: grid;
+}
