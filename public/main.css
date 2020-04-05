@@ -9,5 +9,5 @@ body {
 /*Main window*/
 #mainwindow {
 	background: #44ff33;
-	display: grid;
+	/*display: grid;*/
 }

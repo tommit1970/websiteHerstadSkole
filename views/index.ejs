@@ -5,6 +5,7 @@
 	<title>HerstadMusikk2020</title>
 	<link rel="stylesheet" href="main.css">
 	<link rel="stylesheet" href="navbar.css">
+	<link rel="stylesheet" href="login.css">
 	<link rel="icon" href="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/32/Music-icon.png">
 </head>
 <body>
@@ -14,7 +15,7 @@
 			<a href="#">Home</a>
 			<a href="#">Trinn</a>
 			<div class="dropdown">
-				<button class="dropbtn" id="dropOne">Dropdown</button>
+				<button class="dropbtn" id="dropOne">Utøve</button>
 				<div class="dropdown-content" id="dropOne-content">
 					<a href="#">Link 1</a>
 					<a href="#">Link 2</a>
@@ -22,7 +23,7 @@
 				</div>
 			</div>
 			<div class="dropdown">
-				<button class="dropbtn" id="dropTwo">Dropdown2</button>
+				<button class="dropbtn" id="dropTwo">Lage</button>
 				<div class="dropdown-content" id="dropTwo-content">
 					<a href="#">ULink 1</a>
 					<a href="#">RLink 2</a>
@@ -30,11 +31,19 @@
 				</div>
 			</div>
 			<div class="dropdown">
-				<button class="dropbtn" id="dropThree">Dropdown3</button>
+				<button class="dropbtn" id="dropThree">Oppleve</button>
 				<div class="dropdown-content" id="dropThree-content">
 					<a href="#">1 Ink</a>
 					<a href="#">2 Sink</a>
 					<a href="#">3 Drink</a>
+				</div>
+			</div>
+			<div class="dropdown">
+				<button class="dropbtn" id="dropFour">Kulturforståelse</button>
+				<div class="dropdown-content" id="dropFour-content">
+					<a href="#">Inkling</a>
+					<a href="#">Sinkling</a>
+					<a href="#">Drinkling</a>
 				</div>
 			</div>
 			<div id="rightside-navbar">
@@ -48,6 +57,8 @@
 		<h1>HerstadMusikk2020</h1>
 		<div id="canvasContainer">
 			<canvas width="400" height="200" id="canvas">Your browser does not support canvas</canvas>
+		</div>
+		<div>
 			<button id="genButt">AnythingButton</button>
 		</div>
 
@@ -62,9 +73,17 @@
 			</div>
 		</div>
 
+
+	</div>
+
+	<div id="loginsection">
+		<input type="text" id="username" name="user">
+		<input type="password" id="password" name="pass">
+		<input type="submit" value="Submit">
 	</div>
 
 </body>
 
-<script src="main.js"></script>
+<script src="navbar.js"></script>
+<script src="login.js"></script>
 </html>

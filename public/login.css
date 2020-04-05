@@ -1,0 +1,20 @@
+
+
+#loginsection {
+	display: none;
+	margin: 10px 35% 10px; /*35% on both sides*/
+	width: 30%; /*30% centered + 35% + 35% = 100%*/
+	background: #22eeaa;
+	border-radius: 25px;
+	border: 2px solid black;
+	padding: 10px;
+	/*text-align: center;*/
+}
+
+#loginsection input {
+	margin: 10px auto;
+	display: block;
+	padding: 5px;
+	font-size: 1.2em;
+}
+
