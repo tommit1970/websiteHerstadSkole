@@ -9,13 +9,12 @@ var navBarHandling = (function(){
 				dropTwoContent: "dropTwo-content",
 				dropThreeContent: "dropThree-content",
 				dropFourContent: "dropFour-content"
+			},
+			windows: {
+				mainwindow: "mainwindow",
+				loginsection: "loginsection",
+				registrationsection: "registrationsection"
 			}
-		}
-
-		var activeWindows = { // onload - one section active(visible) at once
-			mainwindow: "block",
-			loginsection: "none",
-			gradesection: "none"
 		}
 
 		var dropDownsContent = [];
@@ -30,6 +29,8 @@ var navBarHandling = (function(){
 		for(var key in DOMstrings.dropdowns){
 			dropDownsContent.push(document.getElementById(DOMstrings.dropdowns[key]));
 		}
+
+
 
 		function dropDownHandling(event){
 
@@ -89,18 +90,17 @@ var navBarHandling = (function(){
 			});
 		}
 
-		function toggleSections(clicked, other){
+		function toggleSections(clicked){
 
-			if(document.getElementById(clicked).style.display === "block"){
-				actionOne = "none";
-				actionTwo = "block";
-			}else{
-				actionOne = "block";
-				actionTwo = "none";
-
-			}	
-			document.getElementById(clicked).style.display = actionOne;
-			document.getElementById(other).style.display = actionTwo;
+			if(clicked === "mainwindow"){
+				document.getElementById(clicked).style.display = "block";
+				document.getElementById("registrationsection").style.display = "none";
+				document.getElementById("loginsection").style.display = "none";
+			}else if(clicked === "loginsection"){
+				document.getElementById(clicked).style.display = "block";
+				document.getElementById("registrationsection").style.display = "none";
+				document.getElementById("mainwindow").style.display = "none";
+			}
 
 		}
 
@@ -111,7 +111,7 @@ var navBarHandling = (function(){
 			switch(buttonInformation.textContent){
 				case "Home":
 					console.log("HomeButton");
-					toggleSections("mainwindow", "loginsection"); // too hardcoded
+					toggleSections("mainwindow"); // too hardcoded ??
 					break;
 				case "Link 1":
 					console.log("FirstDropDownFirstButton");
@@ -124,7 +124,7 @@ var navBarHandling = (function(){
 					break;
 				case "Login":
 					console.log("Login Page getting ready");
-					toggleSections("loginsection", "mainwindow"); // too hardcoded
+					toggleSections("loginsection"); // too hardcoded ??
 					break;
 				default:
 					console.log("Button undefined");

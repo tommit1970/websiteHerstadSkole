@@ -6,6 +6,10 @@ body {
 }
 
 
+h1 {
+	margin: 0;
+}
+
 /*Main window*/
 #mainwindow {
 	background: #44ff33;

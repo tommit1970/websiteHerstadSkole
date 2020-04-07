@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="main.css">
 	<link rel="stylesheet" href="navbar.css">
 	<link rel="stylesheet" href="login.css">
+	<link rel="stylesheet" href="register.css">
 	<link rel="icon" href="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/32/Music-icon.png">
 </head>
 <body>
@@ -77,13 +78,25 @@
 	</div>
 
 	<div id="loginsection">
-		<input type="text" id="username" name="user">
-		<input type="password" id="password" name="pass">
-		<input type="submit" value="Submit">
+		<input type="text" id="usernameLogin" name="user" placeholder="username">
+		<input type="password" id="passwordLogin" name="pass" placeholder="password">
+		<input type="submit" id="sendLoginID" value="Login">
+		<p id="goToRegistration"><a href="#">New User? Click here!</a></p>
+	</div>
+
+	<div id="registrationsection">
+		<input type="text" id="usernameRegistration" name="user" placeholder="username">
+		<input type="password" id="passwordRegistration" name="pass" placeholder="password">
+		<input type="submit" id="registerNewUser" value="Register new user">
+	</div>
+
+	<div id="demo">
+		The AJAX text comes here!
 	</div>
 
 </body>
 
 <script src="navbar.js"></script>
 <script src="login.js"></script>
+<script src="register.js"></script>
 </html>
