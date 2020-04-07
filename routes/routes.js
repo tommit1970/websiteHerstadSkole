@@ -13,7 +13,7 @@ var bodyP = require("body-parser");
 app.use(bodyP.json());
 
 var data = {
-	sitename: "herstadMusikk2020"
+	sitename: "websiteHerstadMusikk2020"
 }
 
 // Main route
@@ -67,7 +67,8 @@ app.post("/reg", (req,res)=>{
 	
 
 	// Initial feedback
-	var message = "User save request sent!";
+	var message;
+	console.log("User save request sent!");
 
 	// Retrive all userdata
 	User.find({},{username:1, _id:0}, (err, usernameArray) => { // User.find({},{username:1, _id:0}, callback) = returns only username with no _id
@@ -113,10 +114,10 @@ app.post("/reg", (req,res)=>{
 					if(err){
 						message = "Something went wrong!";
 					}else{
-						message: `User registered on ${data.sitename}`
+						message = `User registered on ${data.sitename}`;
+						console.log(message); // serverside
+						res.send(message); // sent to clientside
 					}
-					console.log(message);
-					res.send(message);
 
 				}); // end user.save
 
