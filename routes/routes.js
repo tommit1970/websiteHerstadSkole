@@ -45,7 +45,7 @@ app.post("/login", (req,res)=>{
 			if(user.length === 1){
 				
 				if(user[0].password === userObj.password){
-					message = "Full match! " + user[0];
+					message = "Full match!";
 					console.log(message);
 				}else{
 					message = "FU - Found user, but password was wrong! Right one is: " + user[0]["password"];

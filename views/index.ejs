@@ -3,11 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>HerstadMusikk2020</title>
-	<link rel="stylesheet" href="main.css">
-	<link rel="stylesheet" href="navbar.css">
-	<link rel="stylesheet" href="login.css">
-	<link rel="stylesheet" href="register.css">
+
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="./css/navbar.css">
+	<link rel="stylesheet" href="./css/login.css">
+	<link rel="stylesheet" href="./css/register.css">
+
 	<link rel="icon" href="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/32/Music-icon.png">
+
 </head>
 <body>
 
@@ -68,35 +71,58 @@
 		</p>
 
 		<div id="feedbackCollection">
+
 			<div id="feedOne" class="feeds">
-				<div class="heading">FeedbackContainer</div>
-				<div class="content"></div>
+				<div class="heading">FeedbackContainerOne</div>
+				<div class="content">
+					<textarea id="feedbackOne" disabled>
+						The AJAX text comes here!
+					</textarea>
+				</div>
 			</div>
+
+			<div id="feedTwo" class="feeds">
+				<div class="heading">FeedbackContainerTwo</div>
+				<div class="content">
+					<textarea id="feedbackTwo" disabled>
+						The AJAX text comes here!
+					</textarea>
+				</div>
+			</div>
+			<div id="feedThree" class="feeds">
+				<div class="heading">FeedbackContainerThree</div>
+				<div class="content">
+					<textarea id="feedbackThree" disabled>
+						The AJAX text comes here!
+					</textarea>
+				</div>
+			</div>
+
 		</div>
 
-
-	</div>
+	</div> 
 
 	<div id="loginsection">
 		<input type="text" id="usernameLogin" name="user" placeholder="username">
 		<input type="password" id="passwordLogin" name="pass" placeholder="password">
 		<input type="submit" id="sendLoginID" value="Login">
 		<p id="goToRegistration"><a href="#">New User? Click here!</a></p>
+		<div id="feedLogin"></div>
 	</div>
 
 	<div id="registrationsection">
 		<input type="text" id="usernameRegistration" name="user" placeholder="username">
 		<input type="password" id="passwordRegistration" name="pass" placeholder="password">
 		<input type="submit" id="registerNewUser" value="Register new user">
+		<div id="feedRegistration"></div>
 	</div>
 
-	<div id="demo">
-		The AJAX text comes here!
-	</div>
 
 </body>
 
-<script src="navbar.js"></script>
-<script src="login.js"></script>
-<script src="register.js"></script>
+<script src="./js/navbar.js"></script>
+<script src="./js/login.js"></script>
+<script src="./js/register.js"></script>
+<script src="./js/main.js"></script>
+
 </html>

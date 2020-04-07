@@ -27,16 +27,27 @@ function registerNewUser() {
 	    	if(this.responseText === "User already exits"){
 	    		element.style.background = "red";
 	    		element.focus();
+	    		document.getElementById("feedRegistration").textContent = this.responseText;
 	    	}else{
 	    		element.style.background = "white";
+	    		navbarHandling.focusSection("mainwindow");
+	    		console.log(this.responseText);
+	    		clearRegistration();
+	    		document.getElementById("feedbackOne").textContent = this.responseText;
+	    		document.getElementById("feedRegistration").textContent = "";
+
 	      	}
 	      	
 	      	// always do this
-	    	document.getElementById("demo").innerHTML = this.responseText;
 
 	    }
 	};
 	xhttp.open("POST", "/reg", true);
 	xhttp.setRequestHeader("Content-type", "application/json;charset=UTF-8");
 	xhttp.send(JSON.stringify(userData));
+}
+
+function clearRegistration(){
+	document.getElementById("usernameRegistration").value = "";
+	document.getElementById("passwordRegistration").value = "";
 }

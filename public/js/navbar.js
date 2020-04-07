@@ -1,7 +1,5 @@
-console.log("Connected!");
-
 // IIFE - Imediately Invoked Function Expression preparations
-var navBarHandling = (function(){
+var navbarHandling = (function(){
 
 		var DOMstrings = {
 			dropdowns:{
@@ -90,7 +88,7 @@ var navBarHandling = (function(){
 			});
 		}
 
-		function toggleSections(clicked){
+		function focusSection(clicked){
 
 			if(clicked === "mainwindow"){
 				document.getElementById(clicked).style.display = "block";
@@ -111,7 +109,7 @@ var navBarHandling = (function(){
 			switch(buttonInformation.textContent){
 				case "Home":
 					console.log("HomeButton");
-					toggleSections("mainwindow"); // too hardcoded ??
+					focusSection("mainwindow"); // too hardcoded ??
 					break;
 				case "Link 1":
 					console.log("FirstDropDownFirstButton");
@@ -124,7 +122,7 @@ var navBarHandling = (function(){
 					break;
 				case "Login":
 					console.log("Login Page getting ready");
-					toggleSections("loginsection"); // too hardcoded ??
+					focusSection("loginsection"); // too hardcoded ??
 					break;
 				default:
 					console.log("Button undefined");
@@ -134,11 +132,12 @@ var navBarHandling = (function(){
 		}
 
 		return { //accesible from the outside
-			DOM: DOMstrings
+			DOM: DOMstrings,
+			focusSection: focusSection
 		}
-}); // not an IIFE yet
+})(); // not an IIFE yet
 
 
 window.onload = function (){
-	navBarHandling(); // Now it's an IIFE
+
 }

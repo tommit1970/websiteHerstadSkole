@@ -8,29 +8,49 @@ Remember to use Trello.com
 
 Files and Folders:			FRONTEND		BACKEND
 -----------------------------------------------------------------------------
-	node-mudules 						X
-		express - installed
-		ejs - installed
+	node-mudules 							X
+		express - installed (body-parser included)
+		ejs - installed (embeded javascript <%= %> <% %>)
+		jsSHA - encryption
+		mongoose - db
 -----------------------------------------------------------------------------
-	public 				X
-		main.js
+	public 						X
+		main.js 
+		login.js
+		navbar.js
+		register.js
+
 		main.css
+		login.css
+		navbar.css
+		register.css
 -----------------------------------------------------------------------------
-	routes 							X
+	routes 									X
 		routes.js
 -----------------------------------------------------------------------------
-	views 				X
+	views 						X
 		index.ejs
 -----------------------------------------------------------------------------
-	app.js 							X
+	app.js 									X
 -----------------------------------------------------------------------------
-	package-lock.json 					X
+	package-lock.json 						X
 -----------------------------------------------------------------------------
-	readme.txt 			X			X
+	readme.txt 					X			X
 
 
 
 Frontend development
+	Navbar and Navigation
 
+	AJAX
+		Registration
+		Login
+
+	Canvas
 
 Backend development
+	Registration
+	Login
+	MongoDB
+
+
