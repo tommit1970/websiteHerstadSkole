@@ -5,12 +5,11 @@ Remember to use Trello.com
 
 []][][][][][][][][][][][][][][]
 	Working on now:
-	- Grid display system
+	- Responsiveness (mobile vs. desktop/laptop)
 []][][][][][][][][][][][][][][]
 	
 *********************************************************
-		Things I'll do:
-	- Responsiveness (mobile vs. desktop/laptop)
+	Things I'll do:
 	- Expand the registration info (email(unique), username(unique), password, grade, logo(choose between two(owner, user))
 	- Expand login system - make it safer
 	- Sidebar
@@ -83,5 +82,6 @@ Backend development
 		Things I've done:
 *********************************************************
 	- Button to toggle feedback info
+	- Grid display system, basic
 	-
 	-
