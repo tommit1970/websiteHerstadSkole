@@ -9,7 +9,7 @@ var navbarHandling = (function(){
 				dropFourContent: "dropFour-content"
 			},
 			windows: {
-				mainwindow: "mainwindow",
+				mainsection: "mainsection",
 				loginsection: "loginsection",
 				registrationsection: "registrationsection"
 			}
@@ -21,7 +21,7 @@ var navbarHandling = (function(){
 		var navDOM = document.querySelector(".navbar");
 		navDOM.addEventListener('click', dropDownHandling);
 
-		var mainDOM = document.querySelector("#mainwindow");
+		var mainDOM = document.querySelector("#mainsection");
 		mainDOM.addEventListener('click', removeDrop);
 
 		for(var key in DOMstrings.dropdowns){
@@ -90,14 +90,14 @@ var navbarHandling = (function(){
 
 		function focusSection(clicked){
 
-			if(clicked === "mainwindow"){
+			if(clicked === "mainsection"){
 				document.getElementById(clicked).style.display = "block";
 				document.getElementById("registrationsection").style.display = "none";
 				document.getElementById("loginsection").style.display = "none";
 			}else if(clicked === "loginsection"){
 				document.getElementById(clicked).style.display = "block";
 				document.getElementById("registrationsection").style.display = "none";
-				document.getElementById("mainwindow").style.display = "none";
+				document.getElementById("mainsection").style.display = "none";
 			}
 
 		}
@@ -109,7 +109,7 @@ var navbarHandling = (function(){
 			switch(buttonInformation.textContent){
 				case "Home":
 					console.log("HomeButton");
-					focusSection("mainwindow"); // too hardcoded ??
+					focusSection("mainsection"); // too hardcoded ??
 					break;
 				case "Link 1":
 					console.log("FirstDropDownFirstButton");

@@ -10,7 +10,7 @@ function prepareNewUserScreen(evt){
 
 
 function registerNewUser() {
-	console.log("button clicked");
+	console.log("Reg button clicked");
 
 	var userData = {
 		username:document.getElementById("usernameRegistration").value,
@@ -23,18 +23,35 @@ function registerNewUser() {
 	    var element = document.getElementById("usernameRegistration");
 	    
 	    if (this.readyState == 4 && this.status == 200) {
+
+	    	var responseObj = JSON.parse(this.responseText);
+
 	    	// Condition
-	    	if(this.responseText === "User already exits"){
+	    	if(responseObj.msg === "User already exits"){
+
+	    		// visual feedback in document
 	    		element.style.background = "red";
 	    		element.focus();
-	    		document.getElementById("feedRegistration").textContent = this.responseText;
-	    	}else{
-	    		element.style.background = "white";
-	    		navbarHandling.focusSection("mainwindow");
+	    		document.getElementById("feedRegistration").textContent = responseObj.msg;
+
+	    		// output in console
 	    		console.log(this.responseText);
-	    		clearRegistration();
-	    		document.getElementById("feedbackOne").textContent = this.responseText;
-	    		document.getElementById("feedRegistration").textContent = "";
+
+	    	}else{
+	    		// output - console + document
+	    		console.log(this.responseText);
+	    		document.getElementById("feedbackOne").textContent = responseObj.msg;
+	    		document.getElementById("feedRegistration").textContent = responseObj.msg; // inside registration div
+
+	    		// cleaning
+	    		element.style.background = "white";
+
+	    		// wait a little bit and get ready for more action
+	    		setTimeout(()=>{
+	    			clearRegistration();
+	    			navbarHandling.focusSection("mainsection");
+	    			document.getElementById("feedRegistration").textContent = ""; // inside registration div
+	    		}, 2500);
 
 	      	}
 	      	

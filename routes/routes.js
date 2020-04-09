@@ -42,22 +42,30 @@ app.post("/login", (req,res)=>{
 			console.log("Something went wrong! - User not found!" + err);
 		}else{
 
+			// must be only 1
 			if(user.length === 1){
 				
+				// password check
 				if(user[0].password === userObj.password){
 					message = "Full match!";
 					console.log(message);
 				}else{
-					message = "FU - Found user, but password was wrong! Right one is: " + user[0]["password"];
+					message = "FU - Found user, but password was wrong!"; // username or password is wrong
 					console.log(message);
 				}
 
 			}else{
-				message = "NUF - No user found";
+				message = "NUF - No user found"; // username or password is wrong
 			}
 		}
 
-		res.send(message);
+		// ResponseObject
+		var responseObj = {
+			u: user[0].username,
+			msg: message
+		}
+
+		res.send(responseObj);
 	});
 
 });
@@ -78,21 +86,30 @@ app.post("/reg", (req,res)=>{
 		if(err){
 			console.log("Something went wrong!");
 		}else{
-			console.log("All users retrieved for main page!"); //Got the users - what now
+			console.log("All users retrieved for registration check!"); //Got the users - what now
 
 			var testFailed;
 
-			// Check for similar users
-			usernameArray.forEach((dbUserObj)=>
-{				if(dbUserObj.username === req.body.username){
-					testFailed = true;
-				}
-			});
+			// usernameArray.forEach((dbUserObj)=>{
+			// });
 
+			// Check for similar users
+			for(var i = 0;i < usernameArray.length;i++){
+				if(usernameArray[i]["username"] === req.body.username){
+					testFailed = true;
+					break;
+				}
+
+			}
+
+			var responseObj = {
+				u: usernameArray
+			}
 
 			if(testFailed){
-				console.log("Save request Failed");
-				res.send("User already exits");
+				console.log("Save request Failed with " + req.body.username);
+				responseObj.msg = "User already exits";
+				res.send(responseObj); // failed to create new user
 			}else{
 
 				// encryption - hashing the password - can be done after usercheck - improve
@@ -115,11 +132,16 @@ app.post("/reg", (req,res)=>{
 						message = "Something went wrong!";
 					}else{
 						message = `User registered on ${data.sitename}`;
-						console.log(message); // serverside
-						res.send(message); // sent to clientside
 					}
+					
+					console.log(message); // serverside
+
+					responseObj.msg = message;
+
+					res.send(responseObj); // sent to clientside
 
 				}); // end user.save
+
 
 			} // end if testFailed else
 

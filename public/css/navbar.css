@@ -1,5 +1,5 @@
-
-
+/*navbar-css*/
+/*dropdownmenus*/
 .navbar {
 	background: #008833;
 	overflow: hidden;
@@ -56,8 +56,8 @@
 	background: #ddd;
 }
 
-/*fixed with js*/
-/*How to remove dropdown when mouse leaves buttArea*/
+/*dropdown on click not hover*/
+/*fixed with navbar.js*/ 
 /*.dropdown:hover .dropdown-content {
 	display: block;
 }

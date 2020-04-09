@@ -1,0 +1,31 @@
+#feedbacksection {
+	display: none;
+}
+
+.feeds {
+	width: 30%;
+	display: inline-block;
+	background: gray;
+	margin: 10px;
+}
+
+.feeds .heading {
+	text-align: center;
+	color: hotpink;
+	font-size: 1.2em;
+	font-weight: 700;
+	padding: 10px;
+}
+
+.feeds .content {
+	text-align: center;
+	color: gray;
+	font-size: 0.7em;
+	padding: 0 10px 10px;
+}
+
+.feeds .content textarea {
+	width: 80%;
+	min-height: 300px;
+	resize: none;
+}
