@@ -57,18 +57,38 @@
 	</div>
 
 	<div id="mainsection">
-		<h1>HerstadMusikk2020</h1>
-		<div id="canvasContainer">
-			<canvas width="400" height="200" id="canvas">Your browser does not support canvas</canvas>
+
+		<div id="header">
+			<h1>HerstadMusikk2020</h1>
 		</div>
-		<div>
-			<button id="genButt">AnythingButton</button>
+		<div id="canvas">
+			<canvas width="400" height="200" id="canvas" style="display: none;">Your browser does not support canvas</canvas>
+			<button id="genButt" style="display: none;">AnythingButton</button>
 		</div>
 
-		<p>
-			<%= data.sitename %> 
-		</p>
+		<div id="gridings">
+			
+			<div id="recentElements">
+				<img src="./images/recentelements.png">
+			</div>
 
+			<div id="popularElements">
+				<img src="./images/popularelements.png">
+			</div>
+
+			<div id="advicedElements">
+				<img src="./images/advicedelements.png">
+			</div>
+
+			<div id="breakupElements">
+				<img src="./images/breakupelements.png">
+			</div>
+
+			<div id="just4funElements">
+				<img src="./images/just4funElements.png">
+			</div>
+
+		</div>
 
 	</div>
 
@@ -90,7 +110,7 @@
 	<div id="hiddenstuff">
 		<button id="feedback-toggle">FeedBack</button>
 	</div>
-	
+
 	<div id="feedbacksection">
 
 		<div id="feedOne" class="feeds">
@@ -104,7 +124,7 @@
 		<div id="feedTwo" class="feeds">
 			<div class="heading">FeedbackContainerTwo</div>
 			<div class="content">
-				<textarea id="feedbackTwo" disabled>The AJAX text comes here!
+				<textarea id="feedbackTwo" disabled><%= data.sitename %>
 				</textarea>
 			</div>
 		</div>

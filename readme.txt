@@ -5,16 +5,17 @@ Remember to use Trello.com
 
 []][][][][][][][][][][][][][][]
 	Working on now:
-	- Hide button to toggle feedback info
+	- Grid display system
 []][][][][][][][][][][][][][][]
 	
 *********************************************************
 		Things I'll do:
+	- Responsiveness (mobile vs. desktop/laptop)
 	- Expand the registration info (email(unique), username(unique), password, grade, logo(choose between two(owner, user))
 	- Expand login system - make it safer
 	- Sidebar
-	- Grid display system - responsiveness
 	- Mobile screen friendly - bootstrap???
+	- Logo system - upload images 16x16px(save in db)
 	 
 *********************************************************
 
@@ -81,5 +82,6 @@ Backend development
 *********************************************************
 		Things I've done:
 *********************************************************
+	- Button to toggle feedback info
 	-
 	-
