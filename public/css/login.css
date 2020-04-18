@@ -1,5 +1,7 @@
 
-#loginsection {
+/* Both login and registration*/
+
+.logreg {
 	display: none;
 	margin: 10px 35% 10px; /*35% on both sides*/
 	width: 30%; /*30% centered + 35% + 35% = 100%*/
@@ -10,13 +12,13 @@
 	/*text-align: center;*/
 }
 
-#loginsection input {
+.logreg input {
 	margin: 10px auto;
 	display: block;
 	padding: 5px;
 	font-size: 1.2em;
 }
 
-#loginsection p {
+.logreg p {
 	text-align: right;
 }

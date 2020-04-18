@@ -1,50 +1,135 @@
 /*navbar-css*/
 /*dropdownmenus*/
 .navbar {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
 	background: #008833;
-	overflow: hidden;
+	/*overflow: hidden;*/
+	height: 60px;
 }
 
-.navbar a {
-	float: left;
-	font-size: 16px;
-	color: white;
-	/*text-align: center;*/
-	padding: 14px 16px;
-	text-decoration: none;
+.gridCollectionOneA {
+	grid-column: 2 / 3;
+	height: 100%;
+
+}
+
+.gridCollectionOneB {
+	grid-column: 3 / 4;
+}
+
+.gridCollectionTwo {
+	grid-column: 4 / 9;
+	/*border: 1px solid red;*/
+
+}
+
+.gridCollectionThreeA {
+	grid-column: 9 / 10;
+}
+
+.gridCollectionThreeB {
+	grid-column: 10 / 11;
+}
+
+.dropdowns {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	/*border: 1px solid red;*/
+	height: 100%;
 }
 
 .dropdown {
-	float: left;
-	overflow: hidden;
+	/*overflow: hidden;*/
+	margin: 1em;
+	text-align: center;
+	height: 100%;
+	/*border: 1px solid white;*/
+	
+
 }
 
 .dropdown .dropbtn {
-	font-size: 16px;
+	font-size: 1.2em;
+	font-weight: 800;
+	text-transform: uppercase;
+
+	color: white;
+
+	position: relative; /* makes the lines align under each text */
+
 	border: none;
 	outline: none;
-	color: white;
-	padding: 14px 16px;
 	background: inherit;
 	font-family: inherit;
-	margin: 0;
+	/*border: 1px solid blue;*/
+	cursor: pointer;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
+.dropdown .dropbtn::after {
+	position: absolute;
+	bottom: -0.3em;
+	display: block;
+	content: "";
+	margin: 0 auto;
+	width: 75%;
+	height: 5px;
+	left: 0;
+	right: 0;
+	background: black;
+	border-radius: 2px;
+
+	
+	transform: scale(0,1);
+	transition: transform 250ms ease-in-out;
+} 
+
+.dropdown .dropbtn:hover::after {
+	transform: scale(1,1);
+	transition: transform 250ms ease-in-out;	
+}
+
+.link {
+	display: flex;
+	align-items: center;
+	/*margin: 0;*/
+	height: 100%;
+}
+
+.navbar a {
+	font-size: 1.2em;
+	font-weight: 800;
+	text-transform: uppercase;
+	padding: 16px;
+	color: white;
+
+	text-decoration: none;
+	/*border: 1px solid red;*/
+}
+
+.navbar a:hover {
 	background: #339933;
 }
 
+.navbar .dropbtn:hover {
+	color: black;
+}
+ 
+/* Content */
 .dropdown-content {
+	/*I use js to control dropdowndisplay*/
 	display: none;
+
 	position: absolute;
+	top: 60px;
+	/*height: 100%;*/
 	background: #00f933;
 	min-width: 100px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	/*z-index: 1;*/
+	box-shadow: 16px 16px 16px 0px rgba(0,0,0,0.8);
 }
 
 .dropdown-content a {
-	float: none;
 	color: black;
 	padding: 12px 16px;
 	text-decoration: none;
@@ -56,19 +141,9 @@
 	background: #ddd;
 }
 
-/*dropdown on click not hover*/
-/*fixed with navbar.js*/ 
-/*.dropdown:hover .dropdown-content {
-	display: block;
-}
-*/
 
-#rightside-navbar a {
-	float: right;
-}
-
-@media screen and (max-width: 992px) {
-  # {
+/*@media screen and (max-width: 992px) {
+  {
     width: 50%;
   }
-}
+}*/

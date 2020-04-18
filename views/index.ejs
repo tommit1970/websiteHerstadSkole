@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HerstadMusikk2020</title>
 
 	<link rel="stylesheet" href="./css/main.css">
@@ -15,58 +16,77 @@
 
 <body>
 
-	<div class="navbar">
-		<a href="#">Home</a>
-		<a href="#">Trinn</a>
-		<div class="dropdown">
-			<button class="dropbtn" id="dropOne">Utøve</button>
-			<div class="dropdown-content" id="dropOne-content">
-				<a href="#">Link 1</a>
-				<a href="#">Link 2</a>
-				<a href="#">Link 3</a>
+	<nav class="navbar">
+		<div class="gridCollectionOneA">
+			<div class="link">
+				<a href="#">Home</a>
 			</div>
 		</div>
-		<div class="dropdown">
-			<button class="dropbtn" id="dropTwo">Lage</button>
-			<div class="dropdown-content" id="dropTwo-content">
-				<a href="#">ULink 1</a>
-				<a href="#">RLink 2</a>
-				<a href="#">NiceLink 3</a>
+		<div class="gridCollectionOneB">
+			<div class="link">
+				<a href="#">Trinn</a>
 			</div>
 		</div>
-		<div class="dropdown">
-			<button class="dropbtn" id="dropThree">Oppleve</button>
-			<div class="dropdown-content" id="dropThree-content">
-				<a href="#">1 Ink</a>
-				<a href="#">2 Sink</a>
-				<a href="#">3 Drink</a>
-			</div>
-		</div>
-		<div class="dropdown">
-			<button class="dropbtn" id="dropFour">Kulturforståelse</button>
-			<div class="dropdown-content" id="dropFour-content">
-				<a href="#">Inkling</a>
-				<a href="#">Sinkling</a>
-				<a href="#">Drinkling</a>
-			</div>
-		</div>
-		<div id="rightside-navbar">
-			<a href="#">Logo</a> <!-- rightmost -->
-			<a href="#">Login</a>
-		</div>
-	</div>
 
-	<div id="mainsection">
+		<div class="gridCollectionTwo">
+			<div class="dropdowns">
+				<div class="dropdown">
+					<button class="dropbtn" id="dropOne">Utøve</button>
+					<div class="dropdown-content" id="dropOne-content">
+						<a href="#">Link 1</a>
+						<a href="#">Link 2</a>
+						<a href="#">Link 3</a>
+					</div>
+				</div>
+				<div class="dropdown">
+					<button class="dropbtn" id="dropTwo">Lage</button>
+					<div class="dropdown-content" id="dropTwo-content">
+						<a href="#">ULink 1</a>
+						<a href="#">RLink 2</a>
+						<a href="#">NiceLink 3</a>
+					</div>
+				</div>
+				<div class="dropdown">
+					<button class="dropbtn" id="dropThree">Oppleve</button>
+					<div class="dropdown-content" id="dropThree-content">
+						<a href="#">1 Ink</a>
+						<a href="#">2 Sink</a>
+						<a href="#">3 Drink</a>
+					</div>
+				</div>
+				<div class="dropdown">
+					<button class="dropbtn" id="dropFour">Kulturforståelse</button>
+					<div class="dropdown-content" id="dropFour-content">
+						<a href="#">Inkling</a>
+						<a href="#">Sinkling</a>
+						<a href="#">Drinkling</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="gridCollectionThreeA">
+			<div class="link">
+				<a href="#">Login</a>
+			</div>
+		</div>
+		<div class="gridCollectionThreeB">
+			<div class="link">
+				<a href="#">Logo</a>
+			</div>
+		</div>
+	</nav>
+
+	<main id="mainsection">
 
 		<div id="header">
 			<h1>HerstadMusikk2020</h1>
 		</div>
-		<div id="canvas">
+<!-- 		<div id="canvas">
 			<canvas width="400" height="200" id="canvas" style="display: none;">Your browser does not support canvas</canvas>
 			<button id="genButt" style="display: none;">AnythingButton</button>
-		</div>
+		</div> -->
 
-		<div id="gridings">
+		<section id="gridings">
 			
 			<div id="recentElements">
 				<img src="./images/recentelements.png">
@@ -88,11 +108,11 @@
 				<img src="./images/just4funElements.png">
 			</div>
 
-		</div>
+		</section>
 
-	</div>
+	</main>
 
-	<div id="loginsection">
+	<div class="logreg" id="loginsection">
 		<input type="text" id="usernameLogin" name="user" placeholder="username">
 		<input type="password" id="passwordLogin" name="pass" placeholder="password">
 		<input type="submit" id="sendLoginID" value="Login">
@@ -100,7 +120,7 @@
 		<div id="feedLogin"></div>
 	</div>
 
-	<div id="registrationsection">
+	<div class="logreg" id="registrationsection">
 		<input type="text" id="usernameRegistration" name="user" placeholder="username">
 		<input type="password" id="passwordRegistration" name="pass" placeholder="password">
 		<input type="submit" id="registerNewUser" value="Register new user">
