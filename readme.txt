@@ -5,7 +5,7 @@ Remember to use Trello.com
 
 []][][][][][][][][][][][][][][]
 	Working on now:
-	- Responsiveness (mobile vs. desktop/laptop)
+	- Responsiveness (mobile vs. desktop/laptop) - still working on this
 []][][][][][][][][][][][][][][]
 	
 *********************************************************

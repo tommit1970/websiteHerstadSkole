@@ -1,5 +1,14 @@
 /*navbar-css*/
 /*dropdownmenus*/
+
+.hamburger {
+	display: none;
+}
+
+.nav-toggle {
+	display: none;
+}
+
 .navbar {
 	display: grid;
 	grid-template-columns: repeat(10, 1fr);
@@ -38,14 +47,17 @@
 	align-items: center;
 	/*border: 1px solid red;*/
 	height: 100%;
+	/*width: 100%;*/
 }
 
 .dropdown {
+	/*width: 100%;*/
 	/*overflow: hidden;*/
 	margin: 1em;
 	text-align: center;
 	height: 100%;
 	/*border: 1px solid white;*/
+
 	
 
 }
@@ -87,7 +99,7 @@
 
 .dropdown .dropbtn:hover::after {
 	transform: scale(1,1);
-	transition: transform 250ms ease-in-out;	
+	transition: transform 250ms ease-in-out 100ms;	
 }
 
 .link {
@@ -98,6 +110,7 @@
 }
 
 .navbar a {
+	width: 100%;
 	font-size: 1.2em;
 	font-weight: 800;
 	text-transform: uppercase;
@@ -114,6 +127,9 @@
 
 .navbar .dropbtn:hover {
 	color: black;
+	background: #333;
+	width: 100%;
+	text-align: left;
 }
  
 /* Content */
@@ -125,7 +141,7 @@
 	top: 60px;
 	/*height: 100%;*/
 	background: #00f933;
-	min-width: 100px;
+	width: 100%;
 	box-shadow: 16px 16px 16px 0px rgba(0,0,0,0.8);
 }
 
@@ -142,8 +158,156 @@
 }
 
 
-/*@media screen and (max-width: 992px) {
-  {
-    width: 50%;
-  }
-}*/
+@media screen and (max-width: 600px) {
+
+	header {
+		display: flex;
+		position: relative;
+		top: 0;
+		left: 0;
+		height: 60px;
+		/*border: 1px solid red;*/
+		background: #229911;
+	}
+
+	/* Hamburger */
+			.hamburger {
+				position: absolute;
+				top: 0;
+				left: 10px;
+				display: flex;
+				align-items: center;
+
+				width: 10%;
+				/*border: 1px solid red;*/
+				height: 100%;
+			}
+
+			.hamburger span,
+			.hamburger span::before,
+			.hamburger span::after {
+				height: 3px;
+				background: white;
+				margin: 0 auto;
+				width: 80%;
+				border-radius: 10px;
+			}
+
+			.hamburger span::before,
+			.hamburger span::after {
+				content: "";
+				position: absolute;
+			}
+
+
+			.hamburger span::before {
+				bottom: 25%;
+			}
+
+			.hamburger span::after {
+				top: 25%;
+			}
+
+
+	/* Navbar */
+
+			.nav-toggle {
+				display: none;
+			}
+
+/*			nav {
+				display: none;
+			}*/
+
+			.navbar {
+				all: unset;
+				display: block;
+				position: absolute;
+
+				top: 100%;
+				left: -1px; /* Why */
+				/*left: 0;*/
+				background: #008888;
+				overflow: hidden;
+				/*height: 100%;*/
+
+
+				transform-origin: top;
+				transform: scale(1,0);
+				transition: transform 250ms ease-in-out;
+			}
+
+			.navbar a {
+				opacity: 0;
+				transition: opacity 250ms ease-in-out;
+			}
+
+			.dropdowns {
+				display: block;
+			}
+
+			.dropdown {
+				text-align: left;
+				/*border: 1px solid red;*/
+				/*margin: 0;*/
+				padding: 10px;
+			}
+
+			.dropbtn {
+				opacity: 0;
+				transition: opacity 250ms ease-in-out;
+				margin: 0;
+			}
+
+			.link {
+			}
+			
+
+			.navbar > a {
+				/*border: 1px solid red;*/
+				padding: 10px;
+				width: 100%;
+			}
+
+			.nav-toggle:checked ~ .navbar {
+				transform: scale(1,1);
+			}
+
+			.nav-toggle:checked ~ .navbar a {
+				opacity: 1;
+				transition: opacity 250ms ease-in-out 250ms;
+			}
+
+			.nav-toggle:checked ~ .navbar button {
+				opacity: 1;
+				transition: opacity 250ms ease-in-out 250ms;
+			}
+
+
+	/* Content */
+					.dropdown-content {
+						/*I use js to control dropdowndisplay*/
+						display: none;
+
+						position: relative;
+						top: .5em;
+						/*top: 60px;*/
+						/*height: 100%;*/
+						background: #00f933;
+						/*max-width: 50px;*/
+						box-shadow: 16px 16px 16px 0px rgba(0,0,0,0.8);
+					}
+
+					.dropdown-content a {
+						color: black;
+						padding: 10px;
+						text-decoration: none;
+						display: block;
+						text-align: left;
+					}
+
+					.dropdown-content a:hover {
+						background: #ddd;
+					}
+
+}
