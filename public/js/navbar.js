@@ -1,4 +1,5 @@
-// IIFE - Imediately Invoked Function Expression preparations
+// IIFE - Imediately Invoked Function Expression
+
 var navbarHandling = (function(){
 
 		var DOMstrings = {
@@ -17,7 +18,7 @@ var navbarHandling = (function(){
 
 		var dropDownsContent = [];
 
-		// USING EVENT BUBBLING and EVENT TARGETING = EVENT DELEGATION
+		// USING EVENT BUBBLING and EVENT TARGETING = EVENT DELEGATION - Learned from Jonas
 		var navDOM = document.querySelector(".navbar");
 		navDOM.addEventListener('click', dropDownHandling);
 
@@ -25,7 +26,7 @@ var navbarHandling = (function(){
 		mainDOM.addEventListener('click', removeDrop);
 
 		for(var key in DOMstrings.dropdowns){
-			dropDownsContent.push(document.getElementById(DOMstrings.dropdowns[key]));
+			dropDownsContent.push(document.getElementById(DOMstrings.dropdowns[key])); // push each dropdown-content-object in an array
 		}
 
 
@@ -42,36 +43,35 @@ var navbarHandling = (function(){
 				var dropDown;
 
 				for(var key in DOMstrings.dropdowns){
-					if(elem.id === DOMstrings.dropdowns[key]){ // the list of id with dropdown-content
+					if(elem.id === DOMstrings.dropdowns[key]){ // compare id of clicked element to the list of id with dropdown-content
 						dropDown = true;
-						break; // posible?
 					}
 				}
 
-				if(dropDown){
+				if(dropDown){ // if dropdown is clicked
 
 					toggleDrop(elem);
 					
 					dropDownsContent.forEach((el)=>{
 					
-						if(elem.id !== el.id) el.style.display = "none";
+						if(elem.id !== el.id) el.style.display = "none"; // hide dropdown-content that is not clicked lastly
 
 					});
 
-				}else{
+				}else{ // link was clicked
 					removeDrop();
 					// console.log("Has next sibling, but no dropdown content");
-					linkWasClicked = true;
+					linkWasClicked = true; 
 				}
 
-			}else{
+			}else{ // no sibling
 				removeDrop();
 				// console.log("No next sibling");
 				linkWasClicked = true;
 			}
 
 			if(linkWasClicked){
-				whichButtonWasClickedAndWhatToDo(event.target);
+				whichButtonWasClickedAndWhatToDo(event.target); // pass on target-link
 			}
 		}
 
@@ -83,14 +83,14 @@ var navbarHandling = (function(){
 		}
 
 		function removeDrop(){
-			dropDownsContent.forEach((el)=>{ // only dropdown-content
+			dropDownsContent.forEach((el)=>{ // hide all dropdown-content
 				el.style.display = "none";
 			});
 		}
 
 		function focusSection(clicked){
 
-			if(clicked === "mainsection"){
+			if(clicked === "mainsection"){ // pretty hardcoded
 				document.getElementById(clicked).style.display = "block";
 				document.getElementById("registrationsection").style.display = "none";
 				document.getElementById("loginsection").style.display = "none";
@@ -105,6 +105,13 @@ var navbarHandling = (function(){
 		function whichButtonWasClickedAndWhatToDo(buttonInformation){
 
 			// console.log(buttonInformation.textContent);
+
+			
+			//When some button in menu is clicked remove
+			document.getElementById("nav-toggle").checked = false;
+			// console.log("Action button clicked");
+
+
 
 			switch(buttonInformation.textContent){
 				case "Home":
