@@ -148,7 +148,7 @@
 	width: auto;
 	box-shadow: 16px 16px 16px 0px rgba(0,0,0,0.8);
 
-	border: 1px solid white;
+	/*border: 1px solid white;*/
 
 	transition: height 250ms ease-in-out;
 }
@@ -160,7 +160,7 @@
 	display: block;
 	text-align: left;
 
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 }
 
 .dropdown-content a:hover {
