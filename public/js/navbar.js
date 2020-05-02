@@ -1,104 +1,76 @@
 // IIFE - Imediately Invoked Function Expression
 
-var navbarHandling = (function(){
 
 		var DOMstrings = {
-			dropdowns:{
-				dropOneContent: "dropOne-content",
-				dropTwoContent: "dropTwo-content",
-				dropThreeContent: "dropThree-content",
-				dropFourContent: "dropFour-content"
-			},
-			windows: {
-				mainsection: "mainsection",
-				loginsection: "loginsection",
-				registrationsection: "registrationsection"
-			}
+			// dropdowns:{
+			// 	dropOneContent: "dropOne-content",
+			// 	dropTwoContent: "dropTwo-content",
+			// 	dropThreeContent: "dropThree-content",
+			// 	dropFourContent: "dropFour-content"
+			// },
+			// windows: {
+			// 	mainsection: "mainsection",
+			// 	loginsection: "loginsection",
+			// 	registrationsection: "registrationsection"
+			// }
 		}
 
 		var dropDownsContent = [];
 
 		// USING EVENT BUBBLING and EVENT TARGETING = EVENT DELEGATION - Learned from Jonas
-		var navDOM = document.querySelector(".navbar");
-		navDOM.addEventListener('click', dropDownHandling);
+		var navDOM = document.querySelector("header");
+		navDOM.addEventListener('change', checkboxHandling);
+		navDOM.addEventListener('click', linkHandling);
 
-		var mainDOM = document.querySelector("#mainsection");
-		mainDOM.addEventListener('click', removeDrop);
-
-		for(var key in DOMstrings.dropdowns){
-			dropDownsContent.push(document.getElementById(DOMstrings.dropdowns[key])); // push each dropdown-content-object in an array
-		}
+		var subBurger = document.querySelectorAll(".dropdown-toggle");
+		var mainBurger = document.querySelector(".nav-toggle");
 
 
+		// var mainDOM = document.querySelector("#mainsection");
+		// mainDOM.addEventListener('click', removeDrop);
 
-		function dropDownHandling(event){
+		// for(var key in DOMstrings.dropdowns){
+		// 	dropDownsContent.push(document.getElementById(DOMstrings.dropdowns[key])); // push each dropdown-content-object in an array
+		// }
 
-			var linkWasClicked;
+		function checkboxHandling(event){
 
+			// whick el.id is the same as event.target.id
+			subBurger.forEach((el)=>{
 
-			if(event.target.nextElementSibling){ // if no sibling, at least take away dropdowns
-				
-				var elem = event.target.nextElementSibling;
-
-				var dropDown;
-
-				for(var key in DOMstrings.dropdowns){
-					if(elem.id === DOMstrings.dropdowns[key]){ // compare id of clicked element to the list of id with dropdown-content
-						dropDown = true;
-					}
+				if(el.id !== event.target.id){
+					el.checked = false;
 				}
-
-				if(dropDown){ // if dropdown is clicked
-
-					toggleDrop(elem);
-					
-					dropDownsContent.forEach((el)=>{
-					
-						if(elem.id !== el.id) el.style.display = "none"; // hide dropdown-content that is not clicked lastly
-
-					});
-
-				}else{ // link was clicked
-					removeDrop();
-					// console.log("Has next sibling, but no dropdown content");
-					linkWasClicked = true; 
-				}
-
-			}else{ // no sibling
-				removeDrop();
-				// console.log("No next sibling");
-				linkWasClicked = true;
-			}
-
-			if(linkWasClicked){
-				whichButtonWasClickedAndWhatToDo(event.target); // pass on target-link
-			}
-		}
-
-		function toggleDrop(elem){
-
-			!elem.style.display ? elem.style.display = "none":null;
-			elem.style.display === "none" ? elem.style.display = "block":elem.style.display = "none";
-
-		}
-
-		function removeDrop(){
-			dropDownsContent.forEach((el)=>{ // hide all dropdown-content
-				el.style.display = "none";
+				// console.log(el.checked);
 			});
 		}
 
+		function linkHandling(event){
+
+			if(event.target.localName === "a"){
+				// console.log("A link");
+				console.log(event.target.innerHTML);
+				subBurger.forEach((el)=>{
+					el.checked = false;
+				});
+				mainBurger.checked = false;
+			}
+
+		}
+
+
+
 		function focusSection(clicked){
 
-			if(clicked === "mainsection"){ // pretty hardcoded
-				document.getElementById(clicked).style.display = "block";
-				document.getElementById("registrationsection").style.display = "none";
-				document.getElementById("loginsection").style.display = "none";
-			}else if(clicked === "loginsection"){
-				document.getElementById(clicked).style.display = "block";
-				document.getElementById("registrationsection").style.display = "none";
-				document.getElementById("mainsection").style.display = "none";
-			}
+			// if(clicked === "mainsection"){ // pretty hardcoded
+			// 	document.getElementById(clicked).style.display = "block";
+			// 	document.getElementById("registrationsection").style.display = "none";
+			// 	document.getElementById("loginsection").style.display = "none";
+			// }else if(clicked === "loginsection"){
+			// 	document.getElementById(clicked).style.display = "block";
+			// 	document.getElementById("registrationsection").style.display = "none";
+			// 	document.getElementById("mainsection").style.display = "none";
+			// }
 
 		}
 
@@ -108,43 +80,41 @@ var navbarHandling = (function(){
 
 			
 			//When some button in menu is clicked remove
-			document.getElementById("nav-toggle").checked = false;
+			// document.getElementById("nav-toggle").checked = false;
 			// console.log("Action button clicked");
 
 
 
-			switch(buttonInformation.textContent){
-				case "Home":
-					console.log("HomeButton");
-					focusSection("mainsection"); // too hardcoded ??
-					break;
-				case "Link 1":
-					console.log("FirstDropDownFirstButton");
-					break;
-				case "ULink 1":
-					console.log("SecondDropDownFirstButton");
-					break;
-				case "1 Ink":
-					console.log("ThirdDropDownFirstButton");
-					break;
-				case "Login":
-					console.log("Login Page getting ready");
-					focusSection("loginsection"); // too hardcoded ??
-					break;
-				default:
-					console.log("Button undefined");
-			}
+			// switch(buttonInformation.textContent){
+			// 	case "Home":
+			// 		console.log("HomeButton");
+			// 		focusSection("mainsection"); // too hardcoded ??
+			// 		break;
+			// 	case "Link 1":
+			// 		console.log("FirstDropDownFirstButton");
+			// 		break;
+			// 	case "ULink 1":
+			// 		console.log("SecondDropDownFirstButton");
+			// 		break;
+			// 	case "1 Ink":
+			// 		console.log("ThirdDropDownFirstButton");
+			// 		break;
+			// 	case "Login":
+			// 		console.log("Login Page getting ready");
+			// 		focusSection("loginsection"); // too hardcoded ??
+			// 		break;
+			// 	default:
+			// 		console.log("Button undefined");
+			// }
 
 
 		}
 
-		return { //accesible from the outside
-			DOM: DOMstrings,
-			focusSection: focusSection
-		}
-})(); // not an IIFE yet
+		// return { //accesible from the outside
+		// 	DOM: DOMstrings,
+		// 	focusSection: focusSection
+		// }
 
+var navbarHandling = (function(){
+})();
 
-window.onload = function (){
-
-}
