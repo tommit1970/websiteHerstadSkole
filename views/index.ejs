@@ -19,70 +19,71 @@
 <body>
 
 	<header>
-<!-- 		<div class="hamburger">
-			<span></span>
-		</div> -->
 
 		<label for="nav-toggle" class="hamburger"><span></span></label>
 		<input type="checkbox" id="nav-toggle" class="nav-toggle">
-		<nav class="navbar">
-			<div class="gridCollectionOneA">
-				<div class="link">
-					<a href="#">Home</a>
-				</div>
-			</div>
-			<div class="gridCollectionOneB">
-				<div class="link">
-					<a href="#">Trinn</a>
-				</div>
-			</div>
+		<nav>
+			<ul>
+				<div class="navgrid">
+					
+					<div class="gridCollectionOneA gridAlign">
+						<li><a href="#1">Home</a></li>
+					</div>
+					
+					<div class="gridCollectionOneB gridAlign">
+						<li><a href="#1">Trinn</a></li>
+					</div>
 
-			<div class="gridCollectionTwo">
-				<div class="dropdowns">
-					<div class="dropdown">
-						<button class="dropbtn" id="dropOne">Utøve <i class="fa fa-caret-down"></i></button>
-						<div class="dropdown-content" id="dropOne-content">
-							<a href="#">Link 1</a>
-							<a href="#">Link 2</a>
-							<a href="#">Link 3</a>
-						</div>
+
+					<div class="gridCollectionTwo gridAlign">
+								<div class="dropdown">
+									<label for="dropdown-toggle1" class="dropdown-toggle-label"><span>Utøve </span><i class="fa fa-caret-down"></i></label>
+									<input type="checkbox" id="dropdown-toggle1" class="dropdown-toggle">
+									<ul class="dropdown-content">
+										<li><a href="#2">Link 1</a></li>
+										<li><a href="#2">Link 2</a></li>
+										<li><a href="#2">Link 3</a></li>
+									</ul>
+								</div>					
+								<div class="dropdown">
+									<label for="dropdown-toggle2" class="dropdown-toggle-label"><span>Lage </span><i class="fa fa-caret-down"></i></label>
+									<input type="checkbox" id="dropdown-toggle2" class="dropdown-toggle">
+									<ul class="dropdown-content">
+										<li><a href="#2">ULink 1</a></li>
+										<li><a href="#2">RLink 2</a></li>
+										<li><a href="#2">NiceLink 3</a></li>
+									</ul>
+								</div>					
+								<div class="dropdown">
+									<label for="dropdown-toggle3" class="dropdown-toggle-label"><span>Oppleve </span><i class="fa fa-caret-down"></i></label>
+									<input type="checkbox" id="dropdown-toggle3" class="dropdown-toggle">
+									<ul class="dropdown-content">
+										<li><a href="#2">1 Ink</a></li>
+										<li><a href="#2">2 Sink</a></li>
+										<li><a href="#2">3 Drink</a></li>
+									</ul>
+								</div>
+								<div class="dropdown">
+									<label for="dropdown-toggle4" class="dropdown-toggle-label"><span>Kultur </span><i class="fa fa-caret-down"></i></label>
+									<input type="checkbox" id="dropdown-toggle4" class="dropdown-toggle">
+									<ul class="dropdown-content">
+										<li><a href="#2">Blink 1</a></li>
+										<li><a href="#2">Mink 2</a></li>
+										<li><a href="#2">Hink 3</a></li>
+									</ul>
+								</div>
 					</div>
-					<div class="dropdown">
-						<button class="dropbtn" id="dropTwo">Lage <i class="fa fa-caret-down"></i></button>
-						<div class="dropdown-content" id="dropTwo-content">
-							<a href="#">ULink 1</a>
-							<a href="#">RLink 2</a>
-							<a href="#">NiceLink 3</a>
-						</div>
+
+					<div class="gridCollectionThreeA gridAlign">
+						<li><a href="#1">Login</a></li>
 					</div>
-					<div class="dropdown">
-						<button class="dropbtn" id="dropThree">Oppleve <i class="fa fa-caret-down"></i></button>
-						<div class="dropdown-content" id="dropThree-content">
-							<a href="#">1 Ink</a>
-							<a href="#">2 Sink</a>
-							<a href="#">3 Drink</a>
-						</div>
-					</div>
-					<div class="dropdown">
-						<button class="dropbtn" id="dropFour">Kultur <i class="fa fa-caret-down"></i></button>
-						<div class="dropdown-content" id="dropFour-content">
-							<a href="#">Inkling</a>
-							<a href="#">Sinkling</a>
-							<a href="#">Drinkling</a>
-						</div>
+
+					<div class="gridCollectionThreeB gridAlign">
+						<li><a href="#1">Logo</a></li>
 					</div>
 				</div>
-			</div>
-			<div class="gridCollectionThreeA">
-				<div class="link">
-					<a href="#">Login</a>
-				</div>
-			</div>
-			<div class="gridCollectionThreeB">
-				<div class="link">
-					<a href="#">Logo</a>
-				</div>
-			</div>
+
+			</ul>
 		</nav>
 	</header>
 
@@ -173,7 +174,7 @@
 
 </body>
 
-<script src="./js/navbar.js"></script>
+<!-- <script src="./js/navbar.js"></script> -->
 <script src="./js/login.js"></script>
 <script src="./js/register.js"></script>
 <script src="./js/feedbacks.js"></script>

@@ -1,7 +1,6 @@
-/*navbar-css*/
-/*dropdownmenus*/
+/* Basic Nav Setup */
 
-.hamburger {
+.hamburger { /* checkbox */
 	display: none;
 }
 
@@ -9,18 +8,62 @@
 	display: none;
 }
 
-.navbar {
+.dropdown-toggle { /* checkbox */
+	display: none;
+}
+
+
+
+nav {
+	font-weight: 800;
+	text-transform: uppercase;
+	height: 3em;
+	z-index: 600;
+
+	/*border: 1px solid white;*/
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav li {
+
+}
+
+nav a[href^="#1"] { /* first level links */
+	color: white;
+	text-decoration: none;
+}
+
+nav label { /* labels for inputs */
+	color: #ccc;
+	cursor: pointer;
+	height: 100%;
+
+	overflow: hidden;
+
+	margin-left: 1em;
+}
+
+nav a[href^="#2"] { /* second level links */
+	color: #888;
+	text-decoration: none;
+}
+
+
+/* Grid System */
+
+.navgrid {
 	display: grid;
-	grid-template-columns: repeat(10, 1fr);
-	background: #008833;
-	/*overflow: hidden;*/
-	height: 60px;
+	grid-template-columns: repeat(10fr);
+	height: 3em;
 }
 
 .gridCollectionOneA {
 	grid-column: 2 / 3;
-	height: 100%;
-
 }
 
 .gridCollectionOneB {
@@ -29,8 +72,6 @@
 
 .gridCollectionTwo {
 	grid-column: 4 / 8;
-	/*border: 1px solid red;*/
-
 }
 
 .gridCollectionThreeA {
@@ -41,291 +82,192 @@
 	grid-column: 10 / 11;
 }
 
-.dropdowns {
+.gridAlign { /* all of the gridCollections */
+	align-self: center; /* grid system */
+
 	display: flex;
-	/*justify-content: flex-start;*/
-	/*align-items: center;*/
 	/*border: 1px solid red;*/
-	height: 100%;
+	justify-content: flex-start;
+	padding: 0.62em;
 }
 
+/* hovering */
+
+nav a[href^="#1"]:hover { /* first level links */
+	color: black;
+}
+
+nav label:hover { /* labels for inputs */
+	color: black;
+}
+
+nav a[href^="#2"]:hover { /* second level links */
+	color: black;
+}
+
+/* Dropdown Content */
 .dropdown {
-	width: 100%;
-	/*overflow: hidden;*/
-	height: 100%;
-	/*border: 1px solid white;*/
-
-	
-
+	margin-left: 1em;
+	white-space: nowrap;
 }
 
-.dropbtn {
-	/*text-align: left;*/
-	font-size: 1.2em;
-	font-weight: 800;
-	text-transform: uppercase;
-
-	color: white;
-
-	position: relative; /* makes the lines align under each text */
-	height: 100%;
-	width: 100%;
-	border: none;
-	outline: none;
-	background: inherit;
-	font-family: inherit;
-	/*border: 1px solid blue;*/
-	cursor: pointer;
-}
-
-.dropbtn::after {
-	position: absolute;
-	bottom: 0.5em;
-	display: block;
-	content: "";
-	margin: 0 auto;
-	width: 75%;
-	height: 5px;
-	left: 0;
-	right: 0;
-	background: black;
-	border-radius: 2px;
-
-	
-	transform: scale(0,1);
-	transition: transform 250ms ease-in-out;
-} 
-
-.dropdown .dropbtn:hover::after {
-	transform: scale(1,1);
-	transition: transform 250ms ease-in-out 100ms;	
-}
-
-.link {
-	display: flex;
-	align-items: center;
-	/*margin: 0;*/
-	height: 100%;
-}
-
-.navbar a {
-	width: 100%;
-	font-size: 1.2em;
-	font-weight: 800;
-	text-transform: uppercase;
-	padding: 16px;
-	color: white;
-
-	text-decoration: none;
-	/*border: 1px solid red;*/
-}
-
-.navbar a:hover {
-	/*background: #339933;*/
-	color: black;
-}
-
-.navbar .dropbtn:hover {
-	color: black;
-	/*background: #333;*/
-	width: 100%;
-	/*text-align: center;*/
-}
- 
-/* Content */
 .dropdown-content {
-	/*I use js to control dropdowndisplay*/
-	display: none;
+	display: block;
+	background: #333;
+	/*margin-left: inherit;*/
+	padding: 5px;
 
-	/* focus on this */
-	/*max-height: 0;*/
-	
+	border: 2px solid white;
+	border-radius: 5px;
 
 	position: absolute;
-	top: 60px;
-	/*height: 100%;*/
-	background: #00f933;
-	width: auto;
-	box-shadow: 16px 16px 16px 0px rgba(0,0,0,0.8);
+	top: 3em;
 
-	/*border: 1px solid white;*/
+	transform: scale(1,0);
+	transform-origin: top;
+	transition: transform 250ms ease-in-out;
 
-	transition: height 250ms ease-in-out;
+	z-index: 400;
+
+	max-height: 0;
+	transition: max-height 250ms ease-in-out;
 }
 
 .dropdown-content a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	text-align: left;
-
-	/*border: 1px solid red;*/
+	opacity: 0;
+	transition: opacity 250ms ease-in-out;
+	padding: 10px;
 }
 
-.dropdown-content a:hover {
-	background: #ddd;
+.dropdown-toggle:checked ~ .dropdown-content {
+
+	transform: scale(1,1);
+	transition: transform 250ms ease-in-out;
+
+	max-height: 9em;
+	transition: max-height 250ms ease-in-out;
+}
+
+.dropdown-toggle:checked ~ .dropdown-content a {
+	opacity: 1;
+	transition: opacity 250ms ease-in-out 250ms;
 }
 
 
-@media screen and (max-width: 900px) {
 
-	header {
-		display: flex;
-		position: relative;
+@media screen and (max-width: 800px) {
+
+	/* hamburger start */
+	.hamburger {
+		display: grid;
+		height: 3em;
+		/*border: 1px solid red;*/
+		position: absolute;
 		top: 0;
 		left: 0;
-		height: 60px;
-		/*border: 1px solid red;*/
-		background: #229911;
+		margin-left: 1em;
 	}
 
-	/* Hamburger */
-			.hamburger {
-				position: absolute;
-				top: 0;
-				left: 10px;
-				display: flex;
-				align-items: center;
+	.hamburger span,
+	.hamburger span::before,
+	.hamburger span::after {
+		position: relative;
+		background: white;
+		height: 5px;
+		width: 2em;
+		border-radius: 3px;
+		align-self: center;
+	}
 
-				width: 10%;
-				/*border: 1px solid red;*/
-				height: 100%;
-			}
+	.hamburger span::before,
+	.hamburger span::after {
+		content: "";
+		position: absolute;
+	}
 
-			.hamburger span,
-			.hamburger span::before,
-			.hamburger span::after {
-				height: 3px;
-				background: white;
-				margin: 0 auto;
-				width: 80%;
-				border-radius: 10px;
-			}
+	.hamburger span::before {
+		bottom: 7px;
+	}
 
-			.hamburger span::before,
-			.hamburger span::after {
-				content: "";
-				position: absolute;
-			}
+	.hamburger span::after {
+		top: 7px;
+	}
+
+	/* hamburger end */
 
 
-			.hamburger span::before {
-				bottom: 25%;
-			}
+	.navgrid {
+		/* all: unset; */
+		position: absolute;
+		top: 3em;
 
-			.hamburger span::after {
-				top: 25%;
-			}
+		display: block;
+		/* display: flex; */
+		/* flex-direction: column; */
+		width: 100%;
 
+		background: rgba(50,50,50,0.9);
 
-	/* Navbar */
+		/*border: 1px solid red;*/
 
-			.nav-toggle {
-				display: none;
-			}
+		height: auto;
 
-/*			nav {
-				display: none;
-			}*/
+		transform: scale(1,0);
+		transform-origin: top;
+		transition: transform 250ms ease-in-out;
+	}
 
-			.navbar {
-				all: unset;
-				display: block;
-				position: absolute;
+	.gridAlign {
+		/* all: unset; */
+		flex-direction: column;
+		/* border: 1px solid grey; */
+	}
 
-				top: 100%;
-				left: 0; /* Why */
-				/*left: 0;*/
-				background: #008888;
-				overflow: hidden;
-				/*height: 100%;*/
-				width: 100%;
+	.dropdown-toggle-label {
+		/*border: 1px solid white;*/
+		margin: 0;
+	}
 
+	.dropdown-toggle { /* checkbox */
+		/* display: block; */
 
-				transform-origin: top;
-				transform: scale(1,0);
-				transition: transform 250ms ease-in-out;
-			}
+	}
 
-			.navbar a {
-				opacity: 0;
-				transition: opacity 250ms ease-in-out;
-			}
+	.dropdown {
+		margin: 0.5em 0;
+		/*border: 1px solid blue;*/
+	}
 
-			.dropdowns {
-				display: block;
-				/*border: 1px solid red;*/
-			}
+	.dropdown-content {
+		position: relative;
+		top: 5px;
+	}
 
-			.dropdown {
-				/*border: 1px solid white;*/
-			}
+	.nav-toggle:checked ~ nav .navgrid{
+		/*display: block;*/
 
-			.dropbtn {
-				text-align: left;
-				padding: 0;
-				margin: 0 0 0.5em 0.5em;
+		transform: scale(1,1);
+		transition: transform 250ms ease-in-out 250ms;
+	}
 
-				/*border: 1px solid blue;*/
+	nav a[href^="#1"] { /* first level links */
+		opacity: 0;
+		transition: opacity 250ms ease-in-out;
+	}
 
-				opacity: 0;
-				transition: opacity 250ms ease-in-out;
-			}
+	nav label { /* labels for inputs */
+		opacity: 0;
+		transition: opacity 250ms ease-in-out;
+	}
 
-			.dropbtn::after {
-				display: none;
-			}
+	.nav-toggle:checked ~ nav a[href^="#1"] {
+		opacity: 1;
+		transition: opacity 250ms ease-in-out 450ms;
+	}
 
-			.link {
-			}
-			
-
-			.navbar a {
-				/*border: 1px solid red;*/
-				padding: 0;
-				margin: 0 0 0.5em 0.5em;
-			}
-
-			.nav-toggle:checked ~ .navbar {
-				transform: scale(1,1);
-			}
-
-			.nav-toggle:checked ~ .navbar a {
-				opacity: 1;
-				transition: opacity 250ms ease-in-out 250ms;
-			}
-
-			.nav-toggle:checked ~ .navbar button {
-				opacity: 1;
-				transition: opacity 250ms ease-in-out 250ms;
-			}
-
-
-	/* Content */
-					.dropdown-content {
-						/*I use js to control dropdowndisplay*/
-						display: none;
-
-						position: relative;
-						top: .5em;
-						/*top: 60px;*/
-						/*height: 100%;*/
-						background: #00f933;
-						box-shadow: 16px 16px 16px 0px rgba(0,0,0,0.8);
-					}
-
-					.dropdown-content a {
-						color: black;
-						padding: 10px;
-						text-decoration: none;
-						display: block;
-						width: auto;
-						text-align: left;
-					}
-
-					.dropdown-content a:hover {
-						background: #ddd;
-					}
+	.nav-toggle:checked ~ nav label {
+		opacity: 1;
+		transition: opacity 250ms ease-in-out 450ms;
+	}
 
 }

@@ -91,7 +91,13 @@ img:hover {
 	}
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px){
+	img {
+		width: 100px;
+	}
+}
+
+@media screen and (max-width: 800px) {
 
 	#gridings {
 		all: unset;
@@ -122,34 +128,5 @@ img:hover {
 		width: 300px;
 
 	}
-
-
-
-/*	#recentElements {
-	    grid-column: none;
-		grid-row: none;
-		background: red;
-	}
-	#popularElements {
-	    grid-column: none;
-		grid-row: none;
-		background: green;
-
-	}
-	#advicedElements {
-	    grid-column: none;
-		grid-row: none;
-		background: maroon;
-	}
-	#breakupElements {
-	    grid-column: none;
-		grid-row: none;
-		background: seagreen;
-	}
-	#just4funElements {
-	    grid-column: none;
-		grid-row: none;
-		background: pink;
-	}*/
 
 }
