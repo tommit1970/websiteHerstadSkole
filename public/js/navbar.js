@@ -1,4 +1,5 @@
 // IIFE - Imediately Invoked Function Expression
+var navbarHandling = (function(){
 
 
 		var DOMstrings = {
@@ -8,23 +9,27 @@
 			// 	dropThreeContent: "dropThree-content",
 			// 	dropFourContent: "dropFour-content"
 			// },
-			// windows: {
-			// 	mainsection: "mainsection",
-			// 	loginsection: "loginsection",
-			// 	registrationsection: "registrationsection"
-			// }
+			sections: {
+				home: "home",
+				login: "login",
+				registration: "registration",
+				feedback: "feedback"
+			}
 		}
 
 		var dropDownsContent = [];
 
 		// USING EVENT BUBBLING and EVENT TARGETING = EVENT DELEGATION - Learned from Jonas
 		var navDOM = document.querySelector("header");
-		navDOM.addEventListener('change', checkboxHandling);
-		navDOM.addEventListener('click', linkHandling);
+		navDOM.addEventListener('change', checkboxHandling); // for input-checkbox
+		navDOM.addEventListener('click', linkHandling); // for link-clicks
 
 		var subBurger = document.querySelectorAll(".dropdown-toggle");
 		var mainBurger = document.querySelector(".nav-toggle");
 
+
+		// Feedback-toggler - DEVELOPMENT USE ONLY
+		document.getElementById("feedback-toggle").addEventListener("click", toggleFeedback);
 
 		// var mainDOM = document.querySelector("#mainsection");
 		// mainDOM.addEventListener('click', removeDrop);
@@ -35,6 +40,8 @@
 
 		function checkboxHandling(event){
 
+
+			// Turn of other menus when a menu is clicked
 			// whick el.id is the same as event.target.id
 			subBurger.forEach((el)=>{
 
@@ -45,38 +52,61 @@
 			});
 		}
 
+
 		function linkHandling(event){
 
+
 			if(event.target.localName === "a"){
-				// console.log("A link");
-				console.log(event.target.innerHTML);
+
+				var clickedLink = event.target.innerHTML.toLowerCase();
+
+				console.log(clickedLink);
+				
+
+				// Turn of menus when a link is clicked
 				subBurger.forEach((el)=>{
 					el.checked = false;
 				});
+
+				// Make sure that mainBurger is turned of after clicking a link
 				mainBurger.checked = false;
+
+				// Give focus to a section
+				whichLinkWasClickedAndWhatToDo(clickedLink);
+
 			}
 
 		}
 
+		// Reusable??
+		function toggleFeedback(evt){
+			console.log(evt);
+
+			var feedbackElement = document.getElementById(DOMstrings.sections.feedback);
+
+			if(!feedbackElement.style.display) feedbackElement.style.display = "none"; // oneliner
+			feedbackElement.style.display === "none" ? feedbackElement.style.display = "block" : feedbackElement.style.display = "none";
+
+		}
 
 
 		function focusSection(clicked){
 
-			// if(clicked === "mainsection"){ // pretty hardcoded
-			// 	document.getElementById(clicked).style.display = "block";
-			// 	document.getElementById("registrationsection").style.display = "none";
-			// 	document.getElementById("loginsection").style.display = "none";
-			// }else if(clicked === "loginsection"){
-			// 	document.getElementById(clicked).style.display = "block";
-			// 	document.getElementById("registrationsection").style.display = "none";
-			// 	document.getElementById("mainsection").style.display = "none";
-			// }
+			if(clicked === DOMstrings.sections.home){ // pretty hardcoded
+				document.getElementById(clicked).style.display = "block";
+				document.getElementById(DOMstrings.sections.registration).style.display = "none";
+				document.getElementById(DOMstrings.sections.login).style.display = "none";
+			}else if(clicked === DOMstrings.sections.login){
+				document.getElementById(clicked).style.display = "block";
+				document.getElementById(DOMstrings.sections.registration).style.display = "none";
+				document.getElementById(DOMstrings.sections.home).style.display = "none";
+			}
 
 		}
 
-		function whichButtonWasClickedAndWhatToDo(buttonInformation){
+		function whichLinkWasClickedAndWhatToDo(link){
 
-			// console.log(buttonInformation.textContent);
+			// console.log(link);
 
 			
 			//When some button in menu is clicked remove
@@ -84,37 +114,36 @@
 			// console.log("Action button clicked");
 
 
+			console.log("Focus on:" + link);
 
-			// switch(buttonInformation.textContent){
-			// 	case "Home":
-			// 		console.log("HomeButton");
-			// 		focusSection("mainsection"); // too hardcoded ??
-			// 		break;
-			// 	case "Link 1":
-			// 		console.log("FirstDropDownFirstButton");
-			// 		break;
-			// 	case "ULink 1":
-			// 		console.log("SecondDropDownFirstButton");
-			// 		break;
-			// 	case "1 Ink":
-			// 		console.log("ThirdDropDownFirstButton");
-			// 		break;
-			// 	case "Login":
-			// 		console.log("Login Page getting ready");
-			// 		focusSection("loginsection"); // too hardcoded ??
-			// 		break;
-			// 	default:
-			// 		console.log("Button undefined");
-			// }
+			switch(link){
+				case DOMstrings.sections.home:
+					console.log(link);
+					focusSection(DOMstrings.sections.home); // too hardcoded ??
+					break;
+				case "Link 1":
+					console.log(link);
+					break;
+				case "ULink 1":
+					console.log(link);
+					break;
+				case "1 Ink":
+					console.log(link);
+					break;
+				case DOMstrings.sections.login:
+					console.log(link);
+					focusSection(DOMstrings.sections.login); // too hardcoded ??
+					break;
+				default:
+					console.log("Button undefined");
+			}
 
 
 		}
 
-		// return { //accesible from the outside
-		// 	DOM: DOMstrings,
-		// 	focusSection: focusSection
-		// }
+		return { //accesible from the outside
+			DOM: DOMstrings,
+			focusSection: focusSection
+		}
 
-var navbarHandling = (function(){
 })();
-

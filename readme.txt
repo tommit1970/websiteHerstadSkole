@@ -5,7 +5,8 @@ Remember to use Trello.com
 
 []][][][][][][][][][][][][][][]
 	Working on now:
-	- Responsiveness (mobile vs. desktop/laptop) - still working on this
+	- System for all the html element sections in navbar.js (navbarHandling.DOM.section) - One place to store all of the element ids, so that changes is done in one place only
+	- reg and log - improve css - responsiveness
 []][][][][][][][][][][][][][][]
 	
 *********************************************************
@@ -13,9 +14,9 @@ Remember to use Trello.com
 	- Expand the registration info (email(unique), username(unique), password, grade, logo(choose between two(owner, user))
 	- Expand login system - make it safer
 	- Sidebar
-	- Mobile screen friendly - bootstrap???
 	- Logo system - upload images 16x16px(save in db)
-	 
+	- focusSection - improve system so it is more versatile
+
 *********************************************************
 
 
@@ -30,10 +31,10 @@ Files and Folders:			FRONTEND		BACKEND
 	public/ 				x
 		js/
 			main.js 
-			navbar.js - navbarHandling - IIFE
+			navbar.js - navbarHandling - IIFE - return {DOM, focus}
 			login.js
 			register.js
-			feedbacks.js
+			feedbacks.js - empty
 		css/
 			main.css
 			navbar.css
@@ -83,5 +84,6 @@ Backend development
 *********************************************************
 	- Button to toggle feedback info
 	- Grid display system, basic
+	- Responsiveness (mobile vs. desktop/laptop)
 	-
 	-

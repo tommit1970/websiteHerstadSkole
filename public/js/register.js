@@ -3,8 +3,8 @@ document.querySelector("#registerNewUser").addEventListener('click', registerNew
 document.getElementById("goToRegistration").addEventListener('click', prepareNewUserScreen);
 
 function prepareNewUserScreen(evt){
-	document.getElementById("loginsection").style.display = "none";
-	document.getElementById("registrationsection").style.display = "block";
+	document.getElementById("login").style.display = "none";
+	document.getElementById("registration").style.display = "block";
 }
 
 
@@ -49,7 +49,7 @@ function registerNewUser() {
 	    		// wait a little bit and get ready for more action
 	    		setTimeout(()=>{
 	    			clearRegistration();
-	    			navbarHandling.focusSection("mainsection");
+	    			navbarHandling.focusSection("home");
 	    			document.getElementById("feedRegistration").textContent = ""; // inside registration div
 	    		}, 2500);
 

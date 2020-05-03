@@ -35,7 +35,7 @@ function loginUser() {
 	    			// more cleaning
 	    			clearRegistration();
 	    			document.getElementById("feedLogin").textContent = ""; // inside registration div
-	    			navbarHandling.focusSection("mainsection");
+	    			navbarHandling.focusSection(navbarHandling.DOM.sections.home);
 	    		}, 2500);
 
 	    	}else{
