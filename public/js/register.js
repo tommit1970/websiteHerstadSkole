@@ -1,26 +1,17 @@
-document.querySelector("#registerNewUser").addEventListener('click', registerNewUser);
-// or this
-document.getElementById("goToRegistration").addEventListener('click', prepareNewUserScreen);
-
-function prepareNewUserScreen(evt){
-	document.getElementById("login").style.display = "none";
-	document.getElementById("registration").style.display = "block";
-}
-
-
+document.getElementById(navbarHandling.DOM.regform.regButton).addEventListener('click', registerNewUser);
 
 function registerNewUser() {
-	console.log("Reg button clicked");
+	// console.log("Reg button clicked");
 
 	var userData = {
-		username:document.getElementById("usernameRegistration").value,
-		password: document.getElementById("passwordRegistration").value
+		username:document.getElementById(navbarHandling.DOM.regform.username).value,
+		password: document.getElementById(navbarHandling.DOM.regform.password).value
 	}
 
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	    
-	    var element = document.getElementById("usernameRegistration");
+	    var element = document.getElementById(navbarHandling.DOM.regform.username);
 	    
 	    if (this.readyState == 4 && this.status == 200) {
 
@@ -30,9 +21,9 @@ function registerNewUser() {
 	    	if(responseObj.msg === "User already exits"){
 
 	    		// visual feedback in document
-	    		element.style.background = "red";
+	    		element.style.background = "#666";
 	    		element.focus();
-	    		document.getElementById("feedRegistration").textContent = responseObj.msg;
+	    		document.getElementById(navbarHandling.DOM.regform.feed).textContent = responseObj.msg;
 
 	    		// output in console
 	    		console.log(this.responseText);
@@ -40,8 +31,8 @@ function registerNewUser() {
 	    	}else{
 	    		// output - console + document
 	    		console.log(this.responseText);
-	    		document.getElementById("feedbackOne").textContent = responseObj.msg;
-	    		document.getElementById("feedRegistration").textContent = responseObj.msg; // inside registration div
+	    		document.getElementById(navbarHandling.DOM.feeds.feedOne).textContent = responseObj.msg; // feedbackOne at the bottom - developer
+	    		document.getElementById(navbarHandling.DOM.regform.feed).textContent = responseObj.msg; // inside registration div
 
 	    		// cleaning
 	    		element.style.background = "white";
@@ -50,8 +41,8 @@ function registerNewUser() {
 	    		setTimeout(()=>{
 	    			clearRegistration();
 	    			navbarHandling.focusSection("home");
-	    			document.getElementById("feedRegistration").textContent = ""; // inside registration div
-	    		}, 2500);
+	    			document.getElementById(navbarHandling.DOM.regform.feed).textContent = ""; // inside registration div
+	    		}, 1000);
 
 	      	}
 	      	
@@ -65,6 +56,6 @@ function registerNewUser() {
 }
 
 function clearRegistration(){
-	document.getElementById("usernameRegistration").value = "";
-	document.getElementById("passwordRegistration").value = "";
+	document.getElementById(navbarHandling.DOM.regform.username).value = "";
+	document.getElementById(navbarHandling.DOM.regform.password).value = "";
 }

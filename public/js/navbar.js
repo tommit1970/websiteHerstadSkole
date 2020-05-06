@@ -3,18 +3,37 @@ var navbarHandling = (function(){
 
 
 		var DOMstrings = {
-			// dropdowns:{
-			// 	dropOneContent: "dropOne-content",
-			// 	dropTwoContent: "dropTwo-content",
-			// 	dropThreeContent: "dropThree-content",
-			// 	dropFourContent: "dropFour-content"
-			// },
 			sections: {
 				home: "home",
 				login: "login",
 				registration: "registration",
+				useraccount: "useraccount",
 				feedback: "feedback"
+			},
+			loginform: {
+				username: "usernameLogin",
+				password: "passwordLogin",
+				feed: "feedLogin",
+				loginButton: "sendLoginID",
+				gotoRegButton: "goToRegistration"
+			},
+			regform: {
+				username: "usernameRegistration",
+				password: "passwordRegistration",
+				regButton: "registerNewUser",
+				feed: "feedRegistration"
+			},
+			feeds: {
+				feedOne: "feedbackOne",
+				feedTwo: "feedbackTwo",
+				feedThree: "feedbackThree"
+			},
+			linkIDs: {
+				logInOut: "log",
+				account: "account"
 			}
+
+
 		}
 
 		var dropDownsContent = [];
@@ -96,10 +115,18 @@ var navbarHandling = (function(){
 				document.getElementById(clicked).style.display = "block";
 				document.getElementById(DOMstrings.sections.registration).style.display = "none";
 				document.getElementById(DOMstrings.sections.login).style.display = "none";
+				document.getElementById(DOMstrings.sections.useraccount).style.display = "none";
 			}else if(clicked === DOMstrings.sections.login){
 				document.getElementById(clicked).style.display = "block";
 				document.getElementById(DOMstrings.sections.registration).style.display = "none";
 				document.getElementById(DOMstrings.sections.home).style.display = "none";
+				document.getElementById(DOMstrings.sections.useraccount).style.display = "none";
+				document.getElementById(DOMstrings.loginform.username).focus();
+			}else if(clicked === DOMstrings.sections.useraccount){
+				document.getElementById(clicked).style.display = "grid";
+				document.getElementById(DOMstrings.sections.home).style.display = "none";
+				document.getElementById(DOMstrings.sections.login).style.display = "none";
+				document.getElementById(DOMstrings.sections.registration).style.display = "none";
 			}
 
 		}
@@ -130,9 +157,20 @@ var navbarHandling = (function(){
 				case "1 Ink":
 					console.log(link);
 					break;
+
+				case "konto":
+					// console.log(link);
 				case DOMstrings.sections.login:
 					console.log(link);
 					focusSection(DOMstrings.sections.login); // too hardcoded ??
+					break;
+				case loggedInUserData.username.toLowerCase():
+					console.log("Yes, it worked!");
+					focusSection(DOMstrings.sections.useraccount);
+					break;
+				case "logout":
+					console.log(link);
+					logout();
 					break;
 				default:
 					console.log("Button undefined");

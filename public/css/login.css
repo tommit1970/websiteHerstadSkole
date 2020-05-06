@@ -3,8 +3,8 @@
 
 .logreg {
 	display: none;
-	margin: 10px 35% 10px; /*35% on both sides*/
-	width: 30%; /*30% centered + 35% + 35% = 100%*/
+	margin: 10px auto; /*35% on both sides*/
+	width: 50%; /*30% centered + 35% + 35% = 100%*/
 	background: #22eeaa;
 	border-radius: 25px;
 	border: 2px solid black;
@@ -21,4 +21,10 @@
 
 .logreg p {
 	text-align: right;
+}
+
+@media screen and (max-width: 1000px) {
+	.logreg {
+		width: 75%;
+	}
 }

@@ -29,46 +29,48 @@ app.post("/login", (req,res)=>{
 	// shaObj.update("test");
 	var hash = shaObj.getHash("HEX");
 
-	var userObj = {
+	var inputObj = {
 		username: req.body.username,
 		password: hash
 	}
 
-	User.find({username:userObj.username}, (err, user) => {
+	console.log(inputObj);
 
-		var message;
+	User.find({username:inputObj.username}, (err, user) => {
+
+		var responseObj = {u: "unknown", msg: "no message"};
 
 		if(err){
 			console.log("Something went wrong! - User not found!" + err);
+
 		}else{
 
 			// must be only 1
 			if(user.length === 1){
 				
 				// password check
-				if(user[0].password === userObj.password){
-					message = "Full match!";
-					console.log(message);
+				if(user[0].password === inputObj.password){
+					responseObj.u = user[0].username;
+					responseObj.msg = "Full match!";
+					console.log(responseObj.msg);
 				}else{
-					message = "FU - Found user, but password was wrong!"; // username or password is wrong
-					console.log(message);
+					responseObj.msg = "FU - Found user, but password was wrong!"; // username or password is wrong
+					responseObj.u = user[0].username;
+					console.log(responseObj.msg);
 				}
 
 			}else{
-				message = "NUF - No user found"; // username or password is wrong
+				responseObj.msg = "NUF - No user found"; // username or password is wrong
 			}
-		}
-
-		// ResponseObject
-		var responseObj = {
-			u: user[0].username,
-			msg: message
 		}
 
 		res.send(responseObj);
 	});
 
 });
+
+
+
 
 // Registrationhandling
 app.post("/reg", (req,res)=>{
@@ -90,7 +92,7 @@ app.post("/reg", (req,res)=>{
 
 			var testFailed;
 
-			// usernameArray.forEach((dbUserObj)=>{
+			// usernameArray.forEach((dbinputObj)=>{
 			// });
 
 			// Check for similar users
@@ -117,15 +119,15 @@ app.post("/reg", (req,res)=>{
 				shaObj.update(req.body.password);
 				var hash = shaObj.getHash("HEX");
 
-				// Creating the userObj
-				var clientUserObj = {
+				// Creating the inputObj
+				var clientinputObj = {
 						username: req.body.username,
 						password: hash,
 						grade: 7 // hardcoded - improve
 				};
 
-				// Preparing userObj for saving
-				var user = new User(clientUserObj);
+				// Preparing inputObj for saving
+				var user = new User(clientinputObj);
 
 				user.save(function(err){
 					if(err){

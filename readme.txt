@@ -5,8 +5,9 @@ Remember to use Trello.com
 
 []][][][][][][][][][][][][][][]
 	Working on now:
-	- System for all the html element sections in navbar.js (navbarHandling.DOM.section) - One place to store all of the element ids, so that changes is done in one place only
-	- reg and log - improve css - responsiveness
+	- MinKonto/Navn => logo replacement
+	- Logo system - upload images 16x16px(save in db)
+	- logo in right corner in mobile mode - userimage
 []][][][][][][][][][][][][][][]
 	
 *********************************************************
@@ -14,9 +15,7 @@ Remember to use Trello.com
 	- Expand the registration info (email(unique), username(unique), password, grade, logo(choose between two(owner, user))
 	- Expand login system - make it safer
 	- Sidebar
-	- Logo system - upload images 16x16px(save in db)
 	- focusSection - improve system so it is more versatile
-
 *********************************************************
 
 
@@ -80,10 +79,14 @@ Backend development
 
 
 *********************************************************
-		Things I've done:
+		Things I've done: (newest change/improvement on top)
 *********************************************************
-	- Button to toggle feedback info
-	- Grid display system, basic
+	-
+	-
+	- loggedInUserData - document.cookie - first version, simple - setCookie, getCookie, checkCookie
+	- logout - change login to logout and back again
+	- reg and log - improve css - responsiveness
+	- System for all the html element sections in navbar.js (navbarHandling.DOM.section) - One place to store all of the element ids, so that changes is done in one place only
 	- Responsiveness (mobile vs. desktop/laptop)
-	-
-	-
+	- Grid display system, basic
+	- Button to toggle feedback info

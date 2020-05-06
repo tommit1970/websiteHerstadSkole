@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="./css/login.css">
 	<link rel="stylesheet" href="./css/register.css">
 	<link rel="stylesheet" href="./css/feedbacks.css">
+	<link rel="stylesheet" href="./css/useraccount.css">
 	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
@@ -75,11 +76,11 @@
 					</div>
 
 					<div class="gridCollectionThreeA gridAlign">
-						<li><a href="#1">Login</a></li>
+						<li><a href="#1" id="log">Login</a></li>
 					</div>
 
 					<div class="gridCollectionThreeB gridAlign">
-						<li><a href="#1">Logo</a></li>
+						<li><a href="#1" id="account">Konto</a></li>
 					</div>
 				</div>
 
@@ -125,18 +126,32 @@
 	</main>
 
 	<div class="logreg" id="login">
-		<input type="text" id="usernameLogin" name="user" placeholder="username">
-		<input type="password" id="passwordLogin" name="pass" placeholder="password">
+		<input type="text" id="usernameLogin" name="user" placeholder="username" maxlength="30">
+		<input type="password" id="passwordLogin" name="pass" placeholder="password" maxlength="15">
 		<input type="submit" id="sendLoginID" value="Login">
 		<p id="goToRegistration"><a href="#">New User? Click here!</a></p>
 		<div id="feedLogin"></div>
 	</div>
 
 	<div class="logreg" id="registration">
-		<input type="text" id="usernameRegistration" name="user" placeholder="username">
-		<input type="password" id="passwordRegistration" name="pass" placeholder="password">
+		<input type="text" id="usernameRegistration" name="user" placeholder="username" maxlength="30">
+		<input type="password" id="passwordRegistration" name="pass" placeholder="password" maxlength="15">
 		<input type="submit" id="registerNewUser" value="Register new user">
 		<div id="feedRegistration"></div>
+	</div>
+
+	<div class="usercontainer" id="useraccount">
+		<div class="useraccountpersonal">
+			Name:
+		</div>
+
+		<div class="useraccountstats">
+			Stats:
+		</div>
+
+		<div class="useraccountextra">
+			Extras:
+		</div>
 	</div>
 
 	<div id="hiddenstuff">
@@ -176,6 +191,7 @@
 
 <script src="./js/navbar.js"></script>
 <script src="./js/login.js"></script>
+<script src="./js/logout.js"></script>
 <script src="./js/register.js"></script>
 <script src="./js/feedbacks.js"></script>
 <script src="./js/main.js"></script>
