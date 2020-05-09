@@ -134,43 +134,35 @@ var navbarHandling = (function(){
 
 		function whichLinkWasClickedAndWhatToDo(link){
 
-			// console.log(link);
-
-			
-			//When some button in menu is clicked remove
-			// document.getElementById("nav-toggle").checked = false;
-			// console.log("Action button clicked");
-
-
-			console.log("Focus on:" + link);
+			// console.log("Focus on:" + link);
 
 			switch(link){
 				case DOMstrings.sections.home:
-					console.log(link);
+					// console.log(link);
 					focusSection(DOMstrings.sections.home); // too hardcoded ??
 					break;
 				case "Link 1":
 					console.log(link);
 					break;
-				case "ULink 1":
+				case "ULink 1".toLowerCase():
 					console.log(link);
 					break;
-				case "1 Ink":
-					console.log(link);
+				case "1 Ink".toLowerCase():
+					console.log("I can't believe it: "+link);
 					break;
 
 				case "konto":
 					// console.log(link);
 				case DOMstrings.sections.login:
-					console.log(link);
+					// console.log(link);
 					focusSection(DOMstrings.sections.login); // too hardcoded ??
 					break;
 				case loggedInUserData.username.toLowerCase():
-					console.log("Yes, it worked!");
+					// console.log("Yes, it worked!");
 					focusSection(DOMstrings.sections.useraccount);
 					break;
 				case "logout":
-					console.log(link);
+					// console.log(link);
 					logout();
 					break;
 				default:
