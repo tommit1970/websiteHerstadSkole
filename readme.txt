@@ -5,10 +5,9 @@ Remember to use Trello.com
 
 []][][][][][][][][][][][][][][]
 	Working on now:
-	- MinKonto/Navn => logo replacement
 	- Logo system - upload images 16x16px(save in db) - choose an avatar icon for your account
+	- MinKonto/Navn => logo replacement
 	- logo in right corner in mobile mode - userimage
-	- when you register, login as well
 []][][][][][][][][][][][][][][]
 	
 *********************************************************
@@ -88,6 +87,7 @@ Backend development
 *********************************************************
 	-
 	-
+	- when you register, login as well
 	- make mailaddress apear in account email-input-field
 	- loggedInUserData - document.cookie - first version, simple - setCookie, getCookie, checkCookie
 	- logout - change login to logout and back again
