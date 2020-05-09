@@ -45,7 +45,7 @@ function checkCookie() {
 		loggedInUserData.loggedIn = true;
 
     // pop-up
-    setTimeout(alert("Welcome again, again " + username),1000);
+    // setTimeout(alert("Welcome again, again " + username),1000);
 
     // visual
     document.getElementById("useraccountUsername").value = loggedInUserData.username;
