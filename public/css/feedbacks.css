@@ -1,5 +1,6 @@
 #feedback {
 	display: none;
+	text-align: center;
 }
 
 .feeds {
@@ -26,6 +27,17 @@
 
 .feeds .content textarea {
 	width: 80%;
-	min-height: 300px;
+	min-height: 100px;
 	resize: none;
 }
+
+@media screen and (max-width: 1000px) {
+
+	.feeds {
+		display: block;
+		width: 80%;
+		margin: 10px auto;
+	}
+
+} 
+

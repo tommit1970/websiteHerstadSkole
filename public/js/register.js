@@ -5,6 +5,7 @@ function registerNewUser() {
 
 	var userData = {
 		username:document.getElementById(navbarHandling.DOM.regform.username).value,
+		email: document.getElementById(navbarHandling.DOM.regform.email).value,
 		password: document.getElementById(navbarHandling.DOM.regform.password).value
 	}
 
@@ -42,6 +43,8 @@ function registerNewUser() {
 	    			clearRegistration();
 	    			navbarHandling.focusSection("home");
 	    			document.getElementById(navbarHandling.DOM.regform.feed).textContent = ""; // inside registration div
+
+	    			loginStuff(userData); // see login.js
 	    		}, 1000);
 
 	      	}

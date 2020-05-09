@@ -19,6 +19,7 @@ var navbarHandling = (function(){
 			},
 			regform: {
 				username: "usernameRegistration",
+				email: "emailRegistration",
 				password: "passwordRegistration",
 				regButton: "registerNewUser",
 				feed: "feedRegistration"
@@ -99,7 +100,7 @@ var navbarHandling = (function(){
 
 		// Reusable??
 		function toggleFeedback(evt){
-			console.log(evt);
+			// console.log(evt);
 
 			var feedbackElement = document.getElementById(DOMstrings.sections.feedback);
 

@@ -6,8 +6,9 @@ Remember to use Trello.com
 []][][][][][][][][][][][][][][]
 	Working on now:
 	- MinKonto/Navn => logo replacement
-	- Logo system - upload images 16x16px(save in db)
+	- Logo system - upload images 16x16px(save in db) - choose an avatar icon for your account
 	- logo in right corner in mobile mode - userimage
+	- when you register, login as well
 []][][][][][][][][][][][][][][]
 	
 *********************************************************
@@ -34,12 +35,15 @@ Files and Folders:			FRONTEND		BACKEND
 			login.js
 			register.js
 			feedbacks.js - empty
+
 		css/
 			main.css
 			navbar.css
 			login.css
 			register.css
 			feedbacks.css
+			useraccount.css
+							FRONTEND		BACKEND
 -----------------------------------------------------------------------------
 	db_stuff/								x
 		mongodb.js
@@ -60,7 +64,8 @@ Files and Folders:			FRONTEND		BACKEND
 -----------------------------------------------------------------------------
 	readme.txt 				x				x
 	README.md 				x 				x
-
+-----------------------------------------------------------------------------
+							FRONTEND		BACKEND
 
 
 Frontend development
@@ -83,6 +88,7 @@ Backend development
 *********************************************************
 	-
 	-
+	- make mailaddress apear in account email-input-field
 	- loggedInUserData - document.cookie - first version, simple - setCookie, getCookie, checkCookie
 	- logout - change login to logout and back again
 	- reg and log - improve css - responsiveness

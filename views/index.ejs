@@ -135,22 +135,78 @@
 
 	<div class="logreg" id="registration">
 		<input type="text" id="usernameRegistration" name="user" placeholder="username" maxlength="30">
+		<input type="email" id="emailRegistration" name="mail" placeholder="user@email.com" maxlength="30">
 		<input type="password" id="passwordRegistration" name="pass" placeholder="password" maxlength="15">
 		<input type="submit" id="registerNewUser" value="Register new user">
 		<div id="feedRegistration"></div>
 	</div>
 
 	<div class="usercontainer" id="useraccount">
-		<div class="useraccountpersonal">
-			Name:
+		<div class="useraccountpersonal bordered">
+			<h4>
+				Brukerinfo:
+			</h4>
+			<div class="user">
+				<label for="useraccountUsername">Bruker</label>
+				<input type="text" id="useraccountUsername" disabled>
+			</div>
+			<br>
+			<div class="mail">
+				<label for="useraccountEmail">Email</label>
+				<input type="text" id="useraccountEmail" disabled>
+			</div>
+			<br>
+			<div class="newpass">
+				<label for="useraccountNewpassword">Nytt Passord</label>
+				<input type="submit" id="useraccountNewpassword" value="Trykk Her">
+			</div>
 		</div>
 
-		<div class="useraccountstats">
-			Stats:
+		<div class="useraccountstats bordered">
+			<h4>
+				Bruker stats:
+			</h4>
+			<div class="totalscore">
+				<label for="totalscore">Poeng totalt</label>
+				<input type="text" id="totalscore" disabled value="75">
+			</div>
+			<br>
+			<div class="playscore">
+				<label for="playscore">Poeng utøve</label>
+				<input type="text" id="playscore" disabled value="10">	
+			</div>
+			<br>
+			<div class="makescore">
+				<label for="makescore">Poeng lage</label>
+				<input type="text" id="makescore" disabled value="20">
+			</div>
+			<br>
+			<div class="experiencescore">
+				<label for="experiencescore">Poeng opplevelse</label>
+				<input type="text" id="experiencescore" disabled value="30">
+			</div>
+			<br>
+			<div class="culturescore">
+				<label for="culturescore">Poeng kultur</label>
+				<input type="text" id="culturescore" disabled value="15">
+			</div>
 		</div>
 
-		<div class="useraccountextra">
-			Extras:
+		<div class="useraccountextra bordered">
+			<h4>
+				Bruker ekstraordinært:
+			</h4>
+			<div class="badges">
+				<label for="badges">Merker</label>
+				<div id="badges">
+					<img src="http://icons.iconarchive.com/icons/mysitemyway/grunge-stickers/64/orange-sticker-badges-283-icon.png" alt="">
+					<img src="http://icons.iconarchive.com/icons/mysitemyway/grunge-stickers/64/orange-sticker-badges-283-icon.png" alt="">
+					<img src="http://icons.iconarchive.com/icons/mysitemyway/grunge-stickers/64/orange-sticker-badges-283-icon.png" alt="">
+					<img src="http://icons.iconarchive.com/icons/mysitemyway/grunge-stickers/64/orange-sticker-badges-283-icon.png" alt="">
+					<img src="http://icons.iconarchive.com/icons/mysitemyway/grunge-stickers/64/orange-sticker-badges-221-icon.png" alt="">
+					<img src="http://icons.iconarchive.com/icons/mysitemyway/grunge-stickers/64/orange-sticker-badges-221-icon.png" alt="">
+				</div>
+			</div>
 		</div>
 	</div>
 

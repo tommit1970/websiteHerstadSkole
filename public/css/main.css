@@ -75,12 +75,12 @@ h1 {
 }
 
 
-img {
+.bigbox img {
 	border: 3px solid black;
 
 }
 
-img:hover {
+.bigbox img:hover {
 	border: 3px solid yellow;
 	cursor: pointer;
 }

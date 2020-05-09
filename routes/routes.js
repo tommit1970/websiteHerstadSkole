@@ -34,11 +34,10 @@ app.post("/login", (req,res)=>{
 		password: hash
 	}
 
-	console.log(inputObj);
 
 	User.find({username:inputObj.username}, (err, user) => {
 
-		var responseObj = {u: "unknown", msg: "no message"};
+		var responseObj = {username: "unknown", msg: "no message"};
 
 		if(err){
 			console.log("Something went wrong! - User not found!" + err);
@@ -50,12 +49,14 @@ app.post("/login", (req,res)=>{
 				
 				// password check
 				if(user[0].password === inputObj.password){
-					responseObj.u = user[0].username;
+					responseObj.username = user[0].username;
+					responseObj.email = user[0].email;
 					responseObj.msg = "Full match!";
 					console.log(responseObj.msg);
 				}else{
 					responseObj.msg = "FU - Found user, but password was wrong!"; // username or password is wrong
-					responseObj.u = user[0].username;
+					responseObj.username = user[0].username;
+					responseObj.email = user[0].email;
 					console.log(responseObj.msg);
 				}
 
@@ -63,6 +64,7 @@ app.post("/login", (req,res)=>{
 				responseObj.msg = "NUF - No user found"; // username or password is wrong
 			}
 		}
+		console.log(responseObj);
 
 		res.send(responseObj);
 	});
@@ -122,6 +124,7 @@ app.post("/reg", (req,res)=>{
 				// Creating the inputObj
 				var clientinputObj = {
 						username: req.body.username,
+						email: req.body.email,
 						password: hash,
 						grade: 7 // hardcoded - improve
 				};

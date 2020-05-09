@@ -43,20 +43,16 @@ function loginUser() {
 	    		// cleaning
 	    		usernameLogin.style.background = "white";
 	    		
-	    		// User Visual
-	    		changeAccountToName(userData.username);
 
 	    		// wait a little bit and get ready for more action
 	    		setTimeout(()=>{
 	    			// more cleaning
 	    			clearLogin();
-	    			loginFeed.textContent = ""; // inside registration div
-	    			navbarHandling.focusSection(navbarHandling.DOM.sections.home);
-	    			// change login to logout
-	    			changeLogLinkTo("Logout");
-	    			setCookie("username",userData.username, 2);
-	    			loggedInUserData.username = userData.username;
-	    			loggedInUserData.loggedIn = true;
+	    			loginFeed.textContent = ""; // Feedback inside registration div
+
+
+	    			loginStuff(responseObj);
+
 	    		}, 1000);
 
 	    	}else{
@@ -96,8 +92,44 @@ function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   var expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  var email = "email=" + loggedInUserData.email;
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";" + email + ";path=/";
+
+  // localStorage
+  localStorage.setItem("username", loggedInUserData.username);
+  localStorage.setItem("email", loggedInUserData.email);
 }
 
 
+
+function loginStuff(responseObj){
+
+	console.log(responseObj);
+	
+	// Go to homepage
+	navbarHandling.focusSection(navbarHandling.DOM.sections.home);
+	
+	// change login to logout
+	changeLogLinkTo("Logout");
+	
+	// User Visual
+	changeAccountToName(responseObj.username);
+	
+	// cookie
+	setCookie("username",responseObj.username, 2);
+	
+
+	// localStorage
+	localStorage.setItem("username", responseObj.username);
+	localStorage.setItem("email", responseObj.email);
+
+	// userdata
+	loggedInUserData.username = localStorage.getItem("username");
+	loggedInUserData.email = localStorage.getItem("email");
+	loggedInUserData.loggedIn = true;
+
+	// visuals
+	document.getElementById("useraccountUsername").value = responseObj.username;
+	document.getElementById("useraccountEmail").value = responseObj.email;
+}
 
