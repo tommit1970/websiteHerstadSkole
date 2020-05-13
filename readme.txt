@@ -5,17 +5,22 @@ Remember to use Trello.com
 
 []][][][][][][][][][][][][][][]
 	Working on now:
-	- Logo system - upload images 16x16px(save in db) - choose an avatar icon for your account
-	- MinKonto/Navn => logo replacement
-	- logo in right corner in mobile mode - userimage
+	- musiclab meets beatbox
+	- firstactivity => play/stop-button - back/forth-button - tempo-pluss/minus-button
+	- firstactivity => rythmbank - record and put in folder
+	- firstactivity => calculate hit points for 'r'-button, now they're hardcoded 
 []][][][][][][][][][][][][][][]
 	
 *********************************************************
 	Things I'll do:
+	- Logo system - upload images 16x16px(save in db) - choose an avatar icon for your account
+	- MinKonto/Navn => logo replacement
+	- logo in right corner in mobile mode - userimage
 	- Expand the registration info (email(unique), username(unique), password, grade, logo(choose between two(owner, user))
 	- Expand login system - make it safer
 	- Sidebar
 	- focusSection - improve system so it is more versatile
+	- iframe musiclab
 *********************************************************
 
 
@@ -87,6 +92,10 @@ Backend development
 *********************************************************
 	-
 	-
+	- firstactivity => working on timer(bpm) vs graphics bar (four beats per bar)
+	- firstactivity => startTime, pressTime, pauseTimeStart, pauseTimeEnd, pauseTimeCollected(important to collect all paused time), endTime
+	- firstactivity => graphical display area
+	- firstactivity => rows with sounds from rythminstruments
 	- when you register, login as well
 	- make mailaddress apear in account email-input-field
 	- loggedInUserData - document.cookie - first version, simple - setCookie, getCookie, checkCookie

@@ -56,4 +56,5 @@ function checkCookie() {
 
 window.onload = function(){
 	checkCookie();
+  canvasHandling();
 }
