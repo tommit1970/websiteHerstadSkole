@@ -13,6 +13,8 @@ var lineSpeedTotal;
 var barLength;
 var numOfInstruments;
 
+var timeCodesII = [0];
+
 var blink;
 
 var startTime, pressTime, pauseTimeStart = 0, pauseTimeCollected = 0, pauseTimeStop = 0, endTime;
@@ -49,7 +51,7 @@ function keyPressed(evt){
 
 	}
 
-	var timeCodes = [0, 500, 1000, 1500, 2000]; // hardcoded
+	var timeCodes = [0, 500, 1000, 1500, 2000]; // hardcoded, this should be calculated/adjusted on changes made to the tempo
 
 	if(evt.keyCode === 82){ // 'r'
 		pressTime = Date.now();
@@ -59,8 +61,8 @@ function keyPressed(evt){
 		// find the timeCode pressTime is closest to
 
 
-		for(var i = 0; i < timeCodes.length; i++){
-			if(Math.abs(diffTime - timeCodes[i]) < 50){
+		for(var i = 0; i < timeCodesII.length; i++){
+			if(Math.abs(diffTime - timeCodesII[i]) < 50){
 				hit = true;
 			}
 		}
@@ -80,10 +82,17 @@ function canvasHandling(){
 	canvasContext = canvas.getContext("2d");
 
 	runningLine = [[0,0],[0,canvas.height]];
+	quantiSize = 1000;
 	framesPerSecond = 60; // bpm or fps
 	barLength = 4;
 	minute = 60;
-	tempo = 120; // bpm
+	tempo = 90; // bpm
+	//calculate timeCodesII here
+	for(var i = 1; i < barLength + 1; i++){
+		timeCodesII.push(minute/tempo * quantiSize * i);
+	}
+	console.log(timeCodesII);
+
 	lineSpeedOneSec = canvas.width / framesPerSecond;
 	lineSpeedTotal = lineSpeedOneSec / barLength * tempo / minute;
 	numOfInstruments = 4;
@@ -125,7 +134,7 @@ function moveAll(){
 
 	// }
 
-	if(runningLine[0][0] > canvas.width || ((endTime-startTime)-(pauseTimeCollected))/1000 > barLength){
+	if(runningLine[0][0] >= canvas.width || ((endTime-startTime)-(pauseTimeCollected))/1000 > barLength){
 		// console.log("X = " + runningLine[0][0]);
 		// console.log("LineSpeedTotal: " + lineSpeedTotal);
 		// console.log("Tempo: " + tempo);
@@ -174,22 +183,38 @@ function backScreen(){
 }
 
 function playAll(){
-	var audioCodes = [0, 500, 1000, 1500, 2000]; // hardcoded
 	var treshhold = 10;
 
-	var diff = endTime - startTime;
+	var diff = (endTime - startTime) - pauseTimeCollected;
 
-	if(diff - treshhold < audioCodes[0] && diff + treshhold > audioCodes[0]){
+	if(diff - treshhold < timeCodesII[0] && diff + treshhold > timeCodesII[0]){
 		bassOne.play();
 		console.log(diff);
+		console.log(lineSpeedTotal);
+	}
+	if(diff - treshhold < timeCodesII[1] && diff + treshhold > timeCodesII[1]){
+			snareOne.play();
+			console.log(diff);
 	}
 
-	if(diff - treshhold < audioCodes[2] && diff + treshhold > audioCodes[2]){
+
+
+	if(diff - treshhold < timeCodesII[2] && diff + treshhold > timeCodesII[2]){
 		bassTwo.play();
 		console.log(diff);
 	}
 
+	if(diff - treshhold < timeCodesII[3] && diff + treshhold > timeCodesII[3]){
+			snareTwo.play();
+			console.log(diff);
+	}
+
+	if(diff - treshhold < timeCodesII[4] && diff + treshhold > timeCodesII[4]){
+			// snareTwo.play();
+			console.log(diff);
+	}
 	// find out when sound ends and how to play different sounds simultanously
+
 
 
 }
