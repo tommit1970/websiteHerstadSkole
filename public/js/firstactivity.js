@@ -16,9 +16,22 @@ var numOfInstruments;
 var timeCodesII = [0];
 
 var playButton = document.querySelector(".play");
+var plussButton = document.querySelector(".plussTempo");
+var minusButton = document.querySelector(".minusTempo");
 
 playButton.addEventListener("click", runPlayer);
+plussButton.addEventListener("click", (evt)=>{
+	tempo++;
+	document.getElementById("tempoInput").value = tempo;
+	timeCodeAndLineSpeedReset();
+});
 
+minusButton.addEventListener("click", (evt)=>{
+	tempo--;
+	document.getElementById("tempoInput").value = tempo;
+	timeCodeAndLineSpeedReset();
+
+});
 
 var startTime, pressTime, pauseTimeStart = 0, pauseTimeCollected = 0, pauseTimeStop = 0, endTime;
 
@@ -56,6 +69,10 @@ function keyPressed(evt){
 			console.log("%c Utafor tidsgrensa " + ((pressTime-startTime)), "color: red;");
 		}
 
+	}
+
+	if(evt.keyCode === 116){
+		location.reload();
 	}
 }
 
@@ -114,14 +131,9 @@ function canvasHandling(){
 	barLength = 4;
 	minute = 60;
 	tempo = 120; // bpm
-	//calculate timeCodesII here
-	for(var i = 1; i < barLength + 1; i++){
-		timeCodesII.push(minute/tempo * quantiSize * i);
-	}
-	console.log(timeCodesII);
 
-	lineSpeedOneSec = canvas.width / framesPerSecond;
-	lineSpeedTotal = lineSpeedOneSec / barLength * tempo / minute;
+	timeCodeAndLineSpeedReset();
+
 	numOfInstruments = 4;
 
 
@@ -129,6 +141,18 @@ function canvasHandling(){
 	// mainAnimation();
 	drawAll(); // first image when animation is off
 
+}
+
+function timeCodeAndLineSpeedReset(){
+	//calculate timeCodesII here
+	timeCodesII = [0];
+	for(var i = 1; i < barLength + 1; i++){
+		timeCodesII.push(minute/tempo * quantiSize * i);
+	}
+	console.log(timeCodesII);
+	
+	lineSpeedOneSec = canvas.width / framesPerSecond;
+	lineSpeedTotal = lineSpeedOneSec / barLength * tempo / minute;
 }
 
 const animate = () => {
