@@ -13,7 +13,6 @@
 	<link rel="stylesheet" href="./css/useraccount.css">
 	<link rel="stylesheet" href="./css/firstactivity.css">
 	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="icon" href="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/32/Music-icon.png">
 </head>
@@ -214,7 +213,17 @@
 	<div id="firstActivity" class="firstActivity">
 		<div class="instrumentArea">Instrument</div>
 		<div class="visualArea"><canvas id="firstCanvas"></canvas></div>
-		<div class="controlArea">Control</div>
+		<div class="controlArea">
+			<div class="buttonControlCollection">
+				<button class="play"><i class="fas fa-play"></i></button>
+				<button class="minusTempo"><i class="fas fa-minus"></i></button>
+				<div>
+					<input type="text" id="tempoInput" maxlength="3">bpm
+				</div>
+				<button class="plussTempo"><i class="fas fa-plus"></i></button>
+				<button class="tap"><i class="fas fa-heartbeat"></i></button>
+			</div>
+		</div>
 	</div>
 
 	<div id="hiddenstuff">
@@ -261,5 +270,7 @@
 <script src="./js/graphicsCommon.js"></script>
 <script src="./js/audio.js"></script>
 <script src="./js/main.js"></script>
+
+<script src="https://kit.fontawesome.com/a6255c2329.js" crossorigin="anonymous"></script>
 
 </html>

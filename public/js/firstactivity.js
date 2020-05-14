@@ -15,39 +15,22 @@ var numOfInstruments;
 
 var timeCodesII = [0];
 
-var blink;
+var playButton = document.querySelector(".play");
+
+playButton.addEventListener("click", runPlayer);
+
 
 var startTime, pressTime, pauseTimeStart = 0, pauseTimeCollected = 0, pauseTimeStop = 0, endTime;
 
 document.addEventListener("keydown", keyPressed);
 
 function keyPressed(evt){
+	evt.preventDefault();
 	console.log(evt.keyCode);
 
 	if(evt.keyCode === 32){
 		console.log("You pressed the spacebar");
-		animation === true ? animation = false : animation = true;
-		
-		if(animation === false){
-			cancelAnimationFrame(animReq);
-			console.log((endTime-startTime)/1000);
-			
-			pauseTimeStart = Date.now();
-
-			// console.log(pauseTimeStart);
-		}else{
-			animReq = requestAnimationFrame(animate);
-			if(runningLine[0][0] === 0){
-				startTime = Date.now();
-			}else{
-				if(pauseTimeStart){
-					pauseTimeStop = Date.now();
-					pauseTimeCollected += (pauseTimeStop - pauseTimeStart);
-				}
-			}
-			// console.log(pauseTimeStop);
-		}
-
+		playIt();
 
 	}
 
@@ -76,6 +59,50 @@ function keyPressed(evt){
 	}
 }
 
+function playIt(){
+	// both spacebar and playbutton
+	animation === true ? animation = false : animation = true;
+	
+	// font-awesome - fa
+	var psButton = document.querySelector(".fa-play") || document.querySelector(".fa-pause");
+
+	if(animation === false){
+		// stop animation
+		cancelAnimationFrame(animReq);
+
+		// stop to play
+		psButton.classList.add("fa-play");
+		psButton.classList.remove("fa-pause");
+		
+		// console.log((endTime-startTime)/1000);
+		
+		pauseTimeStart = Date.now();
+
+		// console.log(pauseTimeStart);
+	}else{
+		// start animation
+		animReq = requestAnimationFrame(animate);
+
+		// play to stop
+		psButton.classList.add("fa-pause");
+		psButton.classList.remove("fa-play");
+
+		document.getElementById("tempoInput").value = tempo;
+
+		if(runningLine[0][0] === 0){
+			startTime = Date.now();
+		}else{
+			if(pauseTimeStart){
+				pauseTimeStop = Date.now();
+				pauseTimeCollected += (pauseTimeStop - pauseTimeStart);
+			}
+		}
+		// console.log(pauseTimeStop);
+	}
+
+
+}
+
 
 function canvasHandling(){
 	canvas = document.getElementById("firstCanvas");
@@ -86,7 +113,7 @@ function canvasHandling(){
 	framesPerSecond = 60; // bpm or fps
 	barLength = 4;
 	minute = 60;
-	tempo = 90; // bpm
+	tempo = 120; // bpm
 	//calculate timeCodesII here
 	for(var i = 1; i < barLength + 1; i++){
 		timeCodesII.push(minute/tempo * quantiSize * i);
@@ -124,31 +151,23 @@ function mainAnimation(){
 
 function moveAll(){
 
+	// running timeline
 	runningLine[0][0] += lineSpeedTotal;
 	runningLine[1][0] += lineSpeedTotal;
 
 
+	// timer
 	endTime = Date.now();
 
-	// if(endTime-startTime){
-
-	// }
-
-	if(runningLine[0][0] >= canvas.width || ((endTime-startTime)-(pauseTimeCollected))/1000 > barLength){
-		// console.log("X = " + runningLine[0][0]);
-		// console.log("LineSpeedTotal: " + lineSpeedTotal);
-		// console.log("Tempo: " + tempo);
-		// console.log("LineSpeedTotal * tempo: " + (lineSpeedTotal * barLength / tempo));
+	// check timer and canvas.width
+	if(runningLine[0][0] >= canvas.width || ((endTime-startTime)-(pauseTimeCollected))/1000 >= barLength){
 		runningLine[0][0] = 0;
 		runningLine[1][0] = 0;
 		console.log("Duration of one screenlength is: " + (((endTime-startTime)-(pauseTimeCollected))/1000));
 
 		startTime = endTime;
 		pauseTimeStart = pauseTimeStop = pauseTimeCollected = 0;
-		// animation = false;
-		// cancelAnimationFrame(animReq);
 	}
-
 }
 
 
@@ -156,24 +175,21 @@ function drawAll(){
 		// draw data - Visual
 		backScreen();
 
-
 		// instrumentSeparators
 		const instrumentTrackHeight = canvas.height / numOfInstruments;
-		// console.log(numOfInstruments);
 
 		for (var i = 1; i < numOfInstruments; i++) {
 			drawLine(0, instrumentTrackHeight * i, canvas.width, instrumentTrackHeight * i, "red", 1);		
 			// console.log("Line " + i);	
 		}
 
-		// fixed line in the middle
+		// lines per beat
 		for(var i = 1; i < barLength; i++){
 			drawLine(canvas.width/barLength*i, 0, canvas.width/barLength*i, canvas.height, "green",1);
 		}
 
-		// runningLine
+		// running timeline
 		drawLine(runningLine[0][0],runningLine[0][1], runningLine[1][0],runningLine[1][1], "white",1);
-
 
 }
 
@@ -197,8 +213,6 @@ function playAll(){
 			console.log(diff);
 	}
 
-
-
 	if(diff - treshhold < timeCodesII[2] && diff + treshhold > timeCodesII[2]){
 		bassTwo.play();
 		console.log(diff);
@@ -215,6 +229,10 @@ function playAll(){
 	}
 	// find out when sound ends and how to play different sounds simultanously
 
+}
 
+function runPlayer(){
+	console.log("You clicked play");
+	playIt();
 
 }

@@ -22,12 +22,9 @@
 	border: 1px solid red;
 }
 
-.controlArea {
-	grid-column: 1 / 6;
-	grid-row: 4 / 5;
-
-	background: silver;
-	border: 1px solid red;
+.firstActivity canvas {
+	width: 100%;
+	height: 100%;
 }
 
 .instrumentArea {
@@ -38,7 +35,32 @@
 	border: 1px solid red;
 }
 
-.firstActivity canvas {
-	width: 100%;
+.controlArea {
+	grid-column: 1 / 6;
+	grid-row: 4 / 5;
+
+	background: silver;
+	border: 1px solid red;
+	margin: 5px auto 0;
+	width: 80%;
+}
+
+.buttonControlCollection {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	height: 100%;
+	border: 1px solid red;
+}
+
+.buttonControlCollection button {
+	font-size: 2em;
+	margin: 5px;
+	padding: 5px;
+}
+
+.buttonControlCollection input {
+	width: 3em;
+	text-align: center;
 }
