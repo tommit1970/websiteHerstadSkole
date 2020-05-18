@@ -211,8 +211,17 @@
 	</div>
 
 	<div id="firstActivity" class="firstActivity">
-		<div class="instrumentArea">Instrument</div>
-		<div class="visualArea"><canvas id="firstCanvas"></canvas></div>
+		<div class="instrumentArea">
+			<p class="instrument" id="inst1">Fløyte</p>
+			<p class="instrument" id="inst2">Gitar</p>
+			<p class="instrument" id="inst3">Skarptromme</p>
+			<p class="instrument" id="inst4">Basstromme</p>
+		</div>
+		
+		<div class="visualArea">
+			<canvas id="firstCanvas"></canvas>
+		</div>
+		
 		<div class="controlArea">
 			<div class="buttonControlCollection">
 				<button class="play"><i class="fas fa-play"></i></button>
@@ -221,7 +230,7 @@
 					<input type="text" id="tempoInput" maxlength="3">bpm
 				</div>
 				<button class="plussTempo"><i class="fas fa-plus"></i></button>
-				<button class="tap"><i class="fas fa-heartbeat"></i></button>
+				<button class="tapTempo"><i class="fas fa-heartbeat"></i></button>
 			</div>
 		</div>
 	</div>

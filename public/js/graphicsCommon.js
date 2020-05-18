@@ -17,7 +17,7 @@ function drawCircle (x,y, rad, strokeColor){
 
 function fillCircle (x,y, rad, fillColor){
     canvasContext.beginPath();
-    canvasContext.arc(x,y, rad, 0, FULLCIRCLE, false);
+    canvasContext.arc(x,y, rad, 0, Math.PI*2, false);
     canvasContext.fillStyle = fillColor;
 //    canvasContext.lineWidth = 10;
     canvasContext.fill();
