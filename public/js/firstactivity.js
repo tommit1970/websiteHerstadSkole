@@ -287,7 +287,7 @@ function drawAll(){
 				}
 			}
 		}
-		
+
 		// instrumentSeparators
 		const instrumentTrackHeight = canvas.height / numOfInstruments;
 
@@ -321,10 +321,16 @@ function playAll(){
 
 	var diff = (endTime - startTime) - pauseTimeCollected;
 
+	// use instrumentArr to time sound
+
+
+
+
 	if(diff - treshhold < timeCodesII[0] && diff + treshhold > timeCodesII[0]){
+		if()
 		bassOne.play();
 		console.log(diff);
-		console.log(lineSpeedTotal);
+		// console.log(lineSpeedTotal);
 	}
 	if(diff - treshhold < timeCodesII[1] && diff + treshhold > timeCodesII[1]){
 			snareOne.play();
@@ -332,12 +338,12 @@ function playAll(){
 	}
 
 	if(diff - treshhold < timeCodesII[2] && diff + treshhold > timeCodesII[2]){
-		bassTwo.play();
+		bassOne.play();
 		console.log(diff);
 	}
 
 	if(diff - treshhold < timeCodesII[3] && diff + treshhold > timeCodesII[3]){
-			snareTwo.play();
+			snareOne.play();
 			console.log(diff);
 	}
 

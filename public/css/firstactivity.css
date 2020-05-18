@@ -18,13 +18,12 @@
 	grid-column: 2 / 6;
 	grid-row: 1 / 4;
 
-	background: gray;
+	background: darkcyan;
 	/*border: 1px solid red;*/
 }
 
 .firstActivity canvas {
-	/*width: 100%;*/
-	/*height: 100%;*/
+
 }
 
 .instrumentArea {
