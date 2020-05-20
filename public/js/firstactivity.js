@@ -18,9 +18,6 @@ var timeCodesII = [0];
 
 var measureStart, measureEnd = 0;
 
-var colorArr = ["black", "grey", "maroon"];
-var colArrPointer = 0;
-
 // instrument array
 var instrumentArr = [ 
 			0,0,0,0,	// fløyte
@@ -127,6 +124,8 @@ function togglePlayIt(){
 		// pause animation
 		cancelAnimationFrame(animReq);
 
+		// console.dir(bassOne);
+
 		// pause-icon to play
 		psButton.classList.add("fa-play");
 		psButton.classList.remove("fa-pause");
@@ -174,7 +173,7 @@ function canvasHandling(){
 	canvas.addEventListener("click", toggleSound);
 
 	// set runningLine points top and bottom
-	runningLine = [[0,0],[0,visualArea.clientWidth]];
+	runningLine = [[0,0],[0,visualArea.offsetWidth]];
 	quantiSize = 1000;
 	framesPerSecond = 60; // bpm or fps
 	barLength = 4;
@@ -191,11 +190,11 @@ function canvasHandling(){
 
 function setCanvasWidthAndHeight(){
 
-	var percentOfCanvasWidth = runningLine[0][0]/visualArea.clientWidth;
-	var diffNewWidth = visualArea.clientWidth - canvas.width;
+	var percentOfCanvasWidth = runningLine[0][0]/visualArea.offsetWidth;
+	var diffNewWidth = visualArea.offsetWidth - canvas.width;
 
 	// canvas width and height
-	canvas.width = visualArea.clientWidth;
+	canvas.width = visualArea.offsetWidth;
 	canvas.height = visualArea.clientHeight;
 
 	// brickSizes
@@ -274,7 +273,7 @@ function moveAll(){
 
 function drawAll(){
 		// draw data - Visual
-		backScreen(colorArr[colArrPointer]);
+		backScreen("black");
 
 		// sounds on is drawn
 		for(var row = 0; row < numOfInstruments; row++){
@@ -323,27 +322,80 @@ function playAll(){
 
 	// use instrumentArr to time sound
 
-
-
-
 	if(diff - treshhold < timeCodesII[0] && diff + treshhold > timeCodesII[0]){
-		if()
-		bassOne.play();
+		
+		if(instrumentArr[0]){
+
+		}
+		if(instrumentArr[4]){
+
+		}
+		if(instrumentArr[8]){
+			soundArr[2].play();
+		}
+		if(instrumentArr[12]){
+			soundArr[3].play();
+		}
+
+		// for(var i = 0; i < instrumentArr.length; i+=4){
+		// 	if(instrumentArr[i]){
+		// 		console.log(soundArr[i]);
+		// 		// console.log(instrumentArr[i]);
+		// 		// soundArr[i].play();
+		// 	}
+		// }
+
 		console.log(diff);
 		// console.log(lineSpeedTotal);
 	}
 	if(diff - treshhold < timeCodesII[1] && diff + treshhold > timeCodesII[1]){
-			snareOne.play();
+
+		if(instrumentArr[1]){
+
+		}
+		if(instrumentArr[5]){
+
+		}
+		if(instrumentArr[9]){
+			soundArr[2].play();
+		}
+		if(instrumentArr[13]){
+			soundArr[3].play();
+		}
 			console.log(diff);
 	}
 
 	if(diff - treshhold < timeCodesII[2] && diff + treshhold > timeCodesII[2]){
-		bassOne.play();
+
+		if(instrumentArr[2]){
+
+		}
+		if(instrumentArr[6]){
+
+		}
+		if(instrumentArr[10]){
+			soundArr[2].play();
+		}
+		if(instrumentArr[14]){
+			soundArr[3].play();
+		}
 		console.log(diff);
 	}
 
 	if(diff - treshhold < timeCodesII[3] && diff + treshhold > timeCodesII[3]){
-			snareOne.play();
+
+		if(instrumentArr[3]){
+
+		}
+		if(instrumentArr[7]){
+
+		}
+		if(instrumentArr[11]){
+			soundArr[2].play();
+		}
+		if(instrumentArr[15]){
+			soundArr[3].play();
+		}
 			console.log(diff);
 	}
 
@@ -410,18 +462,12 @@ function mouseMove(evt){
 function toggleSound(evt){
     console.log("X: " + mouseX + "\nY: " + mouseY);
 
-    // colArrPointer++;
-
-    // if(colArrPointer >= colorArr.length){
-    // 	colArrPointer = 0;
-    // }
-
 	var gridCol = Math.floor(mouseX / brickW);
 	var gridRow = Math.floor(mouseY / brickH);
 
 	var index = colRowToIndex(gridCol, gridRow);
 
-	instrumentArr[index] ? instrumentArr[index] = false : instrumentArr[index] = true;
+	instrumentArr[index] ? instrumentArr[index] = false : instrumentArr[index] = true; // the toggle
 
 	console.log("GridCol: " + gridCol + "\nGridRow: " + gridRow);
 

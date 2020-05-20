@@ -10,4 +10,6 @@ bassTwo.setAttribute("src","./audio/bass.mp3");
 snareOne.setAttribute("src", "./audio/snare.mp3");
 snareTwo.setAttribute("src", "./audio/snare.mp3");
 
+var soundArr = [null, null, snareOne, bassOne];
+
 // console.dir(bass);
