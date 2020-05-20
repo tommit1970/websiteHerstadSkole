@@ -322,82 +322,28 @@ function playAll(){
 
 	// use instrumentArr to time sound
 
-	if(diff - treshhold < timeCodesII[0] && diff + treshhold > timeCodesII[0]){
-		
-		if(instrumentArr[0]){
+	for(var time = 0; time < timeCodesII.length; time++){
+		if(diff - treshhold < timeCodesII[time] && diff + treshhold > timeCodesII[time]){
 
-		}
-		if(instrumentArr[4]){
+			for(var i = time; i < instrumentArr.length; i+=4){
+				if(instrumentArr[i]){
+					// console.log(soundArr[i]);
+					// console.log(instrumentArr[i]);
+					console.log("Flooring "+ i + "/4: "+Math.floor(i/4));
+					soundArr[Math.floor(i/4)].play();
+					// break;
+				}
 
-		}
-		if(instrumentArr[8]){
-			soundArr[2].play();
-		}
-		if(instrumentArr[12]){
-			soundArr[3].play();
-		}
-
-		// for(var i = 0; i < instrumentArr.length; i+=4){
-		// 	if(instrumentArr[i]){
-		// 		console.log(soundArr[i]);
-		// 		// console.log(instrumentArr[i]);
-		// 		// soundArr[i].play();
-		// 	}
-		// }
-
-		console.log(diff);
-		// console.log(lineSpeedTotal);
-	}
-	if(diff - treshhold < timeCodesII[1] && diff + treshhold > timeCodesII[1]){
-
-		if(instrumentArr[1]){
-
-		}
-		if(instrumentArr[5]){
-
-		}
-		if(instrumentArr[9]){
-			soundArr[2].play();
-		}
-		if(instrumentArr[13]){
-			soundArr[3].play();
-		}
+			}
 			console.log(diff);
+			
+			break;
+
+		}
+
 	}
 
-	if(diff - treshhold < timeCodesII[2] && diff + treshhold > timeCodesII[2]){
 
-		if(instrumentArr[2]){
-
-		}
-		if(instrumentArr[6]){
-
-		}
-		if(instrumentArr[10]){
-			soundArr[2].play();
-		}
-		if(instrumentArr[14]){
-			soundArr[3].play();
-		}
-		console.log(diff);
-	}
-
-	if(diff - treshhold < timeCodesII[3] && diff + treshhold > timeCodesII[3]){
-
-		if(instrumentArr[3]){
-
-		}
-		if(instrumentArr[7]){
-
-		}
-		if(instrumentArr[11]){
-			soundArr[2].play();
-		}
-		if(instrumentArr[15]){
-			soundArr[3].play();
-		}
-			console.log(diff);
-	}
 
 	if(diff - treshhold < timeCodesII[4] && diff + treshhold > timeCodesII[4]){
 			// snareTwo.play();
