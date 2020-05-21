@@ -1,3 +1,5 @@
+
+
 var bassOne = document.createElement("audio");
 var bassTwo = document.createElement("audio");
 
@@ -12,7 +14,7 @@ snareTwo.setAttribute("src", "./audio/snare.mp3");
 
 var soundArr = [null, null, snareOne, bassOne];
 
-for(var i = 0; i < instrumentArr.length; i+=4){
+for(var i = 0; i < player.instrArr.length; i+=4){
 	console.log(i % 4);
 }
 

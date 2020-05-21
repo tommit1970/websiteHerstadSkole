@@ -1,23 +1,33 @@
-function logout(){
-	// logout to login
-	changeLogLinkTo("Login");
+// IIFE - 
+var logout = (()=>{
 
-	// remove account posibility
-	changeAccountToName("Konto");
+		function logout(){
+			// logout to login
+			login.chLogLink("Login");
 
-	// cookies remove
-	setCookie("username", loggedInUserData.username, 0); // expires now, see login.js - erase cookie
+			// remove account posibility
+			login.chAccToName("Konto");
 
-	// clear loggedInUserData
-	loggedInUserData.username = "";
-	loggedInUserData.email = "";
-	loggedInUserData.loggedIn = false;
+			// cookies remove
+			login.cookieSet("username", main.loggedInUD.username, 0); // expires now, see login.js - erase cookie
 
-    // clear localStorage
-    localStorage.removeItem("username");
-    localStorage.removeItem("email");
+			// clear loggedInUserData
+			main.loggedInUD.username = "";
+			main.loggedInUD.email = "";
+			main.loggedInUD.loggedIn = false;
+
+		    // clear localStorage
+		    localStorage.removeItem("username");
+		    localStorage.removeItem("email");
 
 
-	// Focus on home
-	navbarHandling.focusSection(navbarHandling.DOM.sections.home);
-}
+			// Focus on home
+			navbarHandling.focusSection(navbarHandling.DOM.sections.home);
+		}
+
+		return { // accessible from the outside
+			logout : logout
+
+		}
+
+})();

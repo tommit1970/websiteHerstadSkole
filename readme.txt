@@ -1,18 +1,20 @@
 HerstadMusikk2020
 
 TRELLO
-Remember to use Trello.com
+Remember to use Trello.com - I've forgotten to use Trello - because I use git - but Trello would be useful
 
 []][][][][][][][][][][][][][][]
 	Working on now:
-	- musiclab meets beatbox
-	- firstactivity => play/stop-button - back/forth-button - tempo-pluss/minus-button
-	- firstactivity => rythmbank - record and put in folder
-	- firstactivity => calculate hit points for 'r'-button, now they're hardcoded 
+	- optimize code - clean code
+	- more IIFE's
+	- musiclab meets Incredibox - challenge(Incredibox uses one tempo on a project) - split project into musiclab or incredibox - mode
+	- firstactivity => back/forth-button
+	- firstactivity => rythmbank - record and put in folder - a far way to go
 []][][][][][][][][][][][][][][]
 	
 *********************************************************
 	Things I'll do:
+	- enter tempo manually
 	- Logo system - upload images 16x16px(save in db) - choose an avatar icon for your account
 	- MinKonto/Navn => logo replacement
 	- logo in right corner in mobile mode - userimage
@@ -20,7 +22,8 @@ Remember to use Trello.com
 	- Expand login system - make it safer
 	- Sidebar
 	- focusSection - improve system so it is more versatile
-	- iframe musiclab
+	- iframe musiclab?
+	- How do you compare localStorage and document.cookie?
 *********************************************************
 
 
@@ -92,6 +95,8 @@ Backend development
 *********************************************************
 	-
 	-
+	- firstactivity => calculate hit points for 'r'-button, now they're hardcoded
+	- firstactivity => play/stop-button - tempo-pluss/minus-button
 	- firstactivity => working on timer(bpm) vs graphics bar (four beats per bar)
 	- firstactivity => startTime, pressTime, pauseTimeStart, pauseTimeEnd, pauseTimeCollected(important to collect all paused time), endTime
 	- firstactivity => graphical display area
