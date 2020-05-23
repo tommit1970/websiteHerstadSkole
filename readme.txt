@@ -8,7 +8,7 @@ Remember to use Trello.com - I've forgotten to use Trello - because I use git - 
 	- optimize code - clean code
 	- more IIFE's
 	- musiclab meets Incredibox - challenge(Incredibox uses one tempo on a project) - split project into musiclab or incredibox - mode
-	- firstactivity => back/forth-button
+	- firstactivity => back/forth-button + reset back to start-button
 	- firstactivity => rythmbank - record and put in folder - a far way to go
 []][][][][][][][][][][][][][][]
 	

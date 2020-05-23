@@ -14,22 +14,17 @@ var player = (()=>{
 
 		var framesPerSecond;
 		var minute;
-		var tempo;
+		// var tempo;
 		var lineSpeedOneSec;
 		var lineSpeedTotal;
-		var barLength;
-		var numOfInstruments;
+		// var barLength;
+		// var numOfInstruments;
 
-		var timeCodesII = [0];
+		var timeCodesII = [];
 
 		var measureStart, measureEnd = 0;
 
-		// instrument array
-		var instrumentArr = [ 
-					0,0,0,0,	// fløyte
-					0,0,0,0,	// gitar
-					0,1,0,1,	// skarptromme
-					1,0,1,0 ];	// basstromme
+		// Measure = own class - stores measureArr = [0,0,0,0,etc.]
 
 		// BRICK W + H
 		var brickW;
@@ -49,12 +44,12 @@ var player = (()=>{
 
 		playButton.addEventListener("click", runPlayer);
 		plussButton.addEventListener("click", (evt)=>{
-			tempo++;
+			main.measure.tempoInc();
 			timeCodeAndLineSpeedReset();
 		});
 
 		minusButton.addEventListener("click", (evt)=>{
-			tempo--;
+			main.measure.tempoDec();
 			timeCodeAndLineSpeedReset();
 		});
 
@@ -96,9 +91,8 @@ var player = (()=>{
 
 				var diffTime = pressTime - startTime;
 				var hit = false;
+
 				// find the timeCode pressTime is closest to
-
-
 				for(var i = 0; i < timeCodesII.length; i++){
 					if(Math.abs(diffTime - timeCodesII[i]) < 50){
 						hit = true;
@@ -114,7 +108,7 @@ var player = (()=>{
 			}
 
 			if(evt.keyCode === 116){
-				location.reload();
+				location.reload(); // when evt.preventDefault()
 			}
 			// evt.preventDefault();
 		}
@@ -149,7 +143,7 @@ var player = (()=>{
 				psButton.classList.add("fa-pause");
 				psButton.classList.remove("fa-play");
 
-				document.getElementById("tempoInput").value = tempo;
+				document.getElementById("tempoInput").value = main.measure.tempo;
 
 				if(runningLine[0][0] === 0){
 					startTime = Date.now();
@@ -179,13 +173,13 @@ var player = (()=>{
 			// set runningLine points top and bottom
 			runningLine = [[0,0],[0,visualArea.offsetWidth]];
 			quantiSize = 1000;
-			framesPerSecond = 60; // bpm or fps
-			barLength = 4;
+			framesPerSecond = 60; // fps
+			// barLength = 4;
 			minute = 60;
-			tempo = 120; // bpm
+			// tempo = 120; // bpm
 
 
-			numOfInstruments = 4;
+			// numOfInstruments = 4;
 
 			setCanvasWidthAndHeight();
 			// drawAll(); // first image when animation is off
@@ -202,15 +196,15 @@ var player = (()=>{
 			canvas.height = visualArea.clientHeight;
 
 			// brickSizes
-			brickW = canvas.width / barLength;
-			brickH = canvas.height / numOfInstruments;
+			brickW = canvas.width / main.measure.beatsPerMeasure / main.measure.resPerBeat;
+			brickH = canvas.height / main.measure.numOfInstruments;
 			gap = brickW * 0.05;
 
 			// adjust runningLine
 			runningLine[0][0] += diffNewWidth * percentOfCanvasWidth;
 			runningLine[1][0] += diffNewWidth * percentOfCanvasWidth;
 
-			console.log(runningLine);
+			// console.log(runningLine);
 
 			timeCodeAndLineSpeedReset();
 
@@ -220,16 +214,16 @@ var player = (()=>{
 		function timeCodeAndLineSpeedReset(){
 			//calculate timeCodesII here
 			timeCodesII = [0];
-			for(var i = 1; i < barLength + 1; i++){
-				timeCodesII.push(minute/tempo * quantiSize * i);
+			for(var i = 1; i < main.measure.beatsPerMeasure*main.measure.resPerBeat + 1; i++){
+				timeCodesII.push(minute/main.measure.tempo / main.measure.resPerBeat * quantiSize * i);
 			}
 
-			// console.log(timeCodesII);
+			console.log("TimeCodes: " + timeCodesII);
 
 			lineSpeedOneSec = canvas.width / framesPerSecond;
-			lineSpeedTotal = lineSpeedOneSec / barLength * tempo / minute;
+			lineSpeedTotal = lineSpeedOneSec / main.measure.beatsPerMeasure * main.measure.tempo / minute; // no need for main.measure.resPerBeat??
 
-			document.getElementById("tempoInput").value = tempo;
+			document.getElementById("tempoInput").value = main.measure.tempo;
 		}
 
 		// animate function
@@ -262,9 +256,11 @@ var player = (()=>{
 			endTime = Date.now();
 
 			// check timer and canvas.width
-			if(runningLine[0][0] >= canvas.width || (((endTime-startTime)-(pauseTimeCollected))) >= timeCodesII[timeCodesII.length - 1]){
-				console.log("Width: "+ canvas.width);
-				console.log("Beats:" + barLength);
+			if(runningLine[0][0] >= canvas.width || (((endTime-startTime)-(pauseTimeCollected))) >= timeCodesII[timeCodesII.length - 1]){ // safety timer
+				// console.log("Width: "+ canvas.width);
+				// console.log("Beats per Measure: " + main.measure.beatsPerMeasure);
+				// console.log("Resolution per Beat: " + main.measure.resPerBeat);
+				// console.log("TimeCodesII: " + timeCodesII);
 				runningLine[0][0] = 0;
 				runningLine[1][0] = 0;
 				console.log("Duration of one screenlength is: " + (((endTime-startTime)-(pauseTimeCollected))/1000));
@@ -280,10 +276,10 @@ var player = (()=>{
 				backScreen("black");
 
 				// sounds on is drawn
-				for(var row = 0; row < numOfInstruments; row++){
-					for(var col = 0; col < barLength; col++){
+				for(var row = 0; row < main.measure.numOfInstruments; row++){
+					for(var col = 0; col < main.measure.beatsPerMeasure*main.measure.resPerBeat; col++){
 						var index = colRowToIndex(col, row);
-						if(instrumentArr[index]){
+						if(main.measure.measureArr[index]){
 							drawFilledRectangle(col*brickW+gap, row*brickH + gap, brickW - 2*gap, brickH - 2*gap, "orange");
 							// fillCircle(col*brickW + brickW / 2, row * brickH + brickH / 2,brickH/4, "maroon");
 							// console.log(index);
@@ -292,16 +288,16 @@ var player = (()=>{
 				}
 
 				// instrumentSeparators
-				const instrumentTrackHeight = canvas.height / numOfInstruments;
+				const instrumentTrackHeight = canvas.height / main.measure.numOfInstruments;
 
-				for (var i = 1; i < numOfInstruments; i++) {
+				for (var i = 1; i < main.measure.numOfInstruments; i++) {
 					drawLine(0, instrumentTrackHeight * i, canvas.width, instrumentTrackHeight * i, "red", 1);		
 					// console.log("Line " + i);	
 				}
 
-				// lines per beat
-				for(var i = 1; i < barLength; i++){
-					drawLine(canvas.width/barLength*i, 0, canvas.width/barLength*i, canvas.height, "green", 1);
+				// lines per measure
+				for(var i = 1; i < main.measure.beatsPerMeasure*main.measure.resPerBeat; i++){
+					drawLine(canvas.width/main.measure.beatsPerMeasure/main.measure.resPerBeat*i, 0, canvas.width/main.measure.beatsPerMeasure/main.measure.resPerBeat*i, canvas.height, "green", 1);
 				}
 
 
@@ -311,7 +307,7 @@ var player = (()=>{
 		}
 
 		function colRowToIndex(col, row){
-			return row*barLength + col;
+			return row*main.measure.beatsPerMeasure*main.measure.resPerBeat + col;
 		}
 
 
@@ -324,17 +320,19 @@ var player = (()=>{
 
 			var diff = (endTime - startTime) - pauseTimeCollected;
 
-			// use instrumentArr to time sound
+			var resolution = main.measure.beatsPerMeasure * main.measure.resPerBeat;
+
+			// use main.measure.measureArr to time sound
 
 			for(var time = 0; time < timeCodesII.length; time++){
 				if(diff - treshhold < timeCodesII[time] && diff + treshhold > timeCodesII[time]){
 
-					for(var i = time; i < instrumentArr.length; i+=4){
-						if(instrumentArr[i]){
+					for(var i = time; i < main.measure.measureArr.length; i+=resolution){
+						if(main.measure.measureArr[i]){
 							// console.log(soundArr[i]);
-							// console.log(instrumentArr[i]);
-							console.log("Flooring "+ i + "/4: "+Math.floor(i/4));
-							soundArr[Math.floor(i/4)].play();
+							// console.log(main.measure.measureArr[i]);
+							console.log("Flooring "+ i + "/8: "+Math.floor(i/resolution));
+							soundArr[Math.floor(i/resolution)].play();
 							// break;
 						}
 
@@ -388,7 +386,7 @@ var player = (()=>{
 				measureDiff = measureEnd - measureStart;
 				measureStart = measureEnd;
 				//calculate tempo
-				tempo = Math.round(60 * 1000/measureDiff);
+				main.measure.tempo = Math.round(60 * 1000/measureDiff);
 				timeCodeAndLineSpeedReset();
 				console.log("MeasureDiff: " + measureDiff);
 			}
@@ -417,7 +415,7 @@ var player = (()=>{
 
 			var index = colRowToIndex(gridCol, gridRow);
 
-			instrumentArr[index] ? instrumentArr[index] = false : instrumentArr[index] = true; // the toggle
+			main.measure.measureArr[index] ? main.measure.measureArr[index] = false : main.measure.measureArr[index] = true; // the toggle
 
 			console.log("GridCol: " + gridCol + "\nGridRow: " + gridRow);
 
@@ -427,8 +425,8 @@ var player = (()=>{
 
 		return { // accessible from the outside
 			canHandling : canvasHandling,
-			instrArr : instrumentArr,
-			canCtx : canvasContext
+			canCtx : canvasContext,
+			tcII : timeCodesII
 		}
 
 

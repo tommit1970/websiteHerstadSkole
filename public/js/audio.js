@@ -14,8 +14,5 @@ snareTwo.setAttribute("src", "./audio/snare.mp3");
 
 var soundArr = [null, null, snareOne, bassOne];
 
-for(var i = 0; i < player.instrArr.length; i+=4){
-	console.log(i % 4);
-}
 
 // console.dir(bass);

@@ -1,8 +1,12 @@
+console.log("Connected");
+
 // IIFE - ready
 var main = (function () {
 
+    var measure = new Measure(2); // (resolutionPerBeat, beatsPerMeasure, numOfInstruments) => standard is (1, 4, 4)
 
-    console.log("Connected");
+    // console.log(measure.measureArr);
+
 
     // Data about logged in user
     var loggedInUserData = {
@@ -61,7 +65,8 @@ var main = (function () {
 
     return { // accessible from the outside
         loggedInUD : loggedInUserData,
-        cookieCheck: checkCookie
+        cookieCheck: checkCookie,
+        measure: measure
     }
 
 })(login);
