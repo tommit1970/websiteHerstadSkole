@@ -6,7 +6,7 @@ mongoose.connect("mongodb://localhost:27017/websiteHerstadRegistration", { useNe
 var message = "MongoDB and mongoose are with us!!";
 
 // Throw a message back to the server
-console.log('\x1b[33m\x1b[40m%s\x1b[0m', message);  // %s is where the string gets injected
+console.log('\x1b[35m\x1b[42m%s\x1b[0m', message);  // %s is where the string gets injected
 
 // Reset = "\x1b[0m"
 // Bright = "\x1b[1m"

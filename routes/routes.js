@@ -6,15 +6,22 @@ var app = express();
 
 app.use(express.static("public"));
 
-app.set("view engine", "ejs");
+app.set("view engine", "ejs"); // embeded javascript
 
 var bodyP = require("body-parser");
 
-app.use(bodyP.json());
+app.use(bodyP.json()); // using json-parsing with the body-parser, option is -> bodyP.urlencoded({ extended: false })
 
 var data = {
 	sitename: "websiteHerstadMusikk2020"
 }
+
+// The routes are:
+	// Main - homepage - index.ejs
+	// Loginhandling
+	// Registrationhandling
+
+
 
 // Main route
 app.get("/", (req, res)=>{

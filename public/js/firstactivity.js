@@ -1,4 +1,4 @@
-
+// IIFE - Immediately Invoked Function Expression
 var player = (()=>{
 
 
