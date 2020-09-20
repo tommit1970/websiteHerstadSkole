@@ -1,4 +1,6 @@
-HerstadMusikk2020
+'''''''''''''''''''''''''''''''''
+''''	HerstadMusikk2020	 ''''
+'''''''''''''''''''''''''''''''''
 
 TRELLO
 Remember to use Trello.com - I've forgotten to use Trello - because I use git - but Trello would be useful
@@ -9,7 +11,11 @@ Remember to use Trello.com - I've forgotten to use Trello - because I use git - 
 	- more IIFE's
 	- musiclab meets Incredibox - challenge(Incredibox uses one tempo on a project) - split project into musiclab or incredibox - mode
 	- firstactivity => back/forth-button + reset back to start-button
-	- firstactivity => rythmbank - record and put in folder - a far way to go
+		
+		- I found Web Audio API - That is was part of all browsers - A standard
+			- all previous work on firstActivity is paused, but the experices are still usefull
+			- firstactivity => rythmbank - record and put in folder - a far way to go
+
 []][][][][][][][][][][][][][][]
 	
 *********************************************************
