@@ -215,7 +215,7 @@ var player = (()=>{
 			//calculate timeCodesII here
 			timeCodesII = [0];
 			for(var i = 1; i < main.measure.beatsPerMeasure*main.measure.resPerBeat + 1; i++){
-				timeCodesII.push(minute/main.measure.tempo / main.measure.resPerBeat * quantiSize * i);
+				timeCodesII.push(Math.round(minute/main.measure.tempo / main.measure.resPerBeat * quantiSize * i));
 			}
 
 			console.log("TimeCodes: " + timeCodesII);
@@ -263,7 +263,7 @@ var player = (()=>{
 				// console.log("TimeCodesII: " + timeCodesII);
 				runningLine[0][0] = 0;
 				runningLine[1][0] = 0;
-				console.log("Duration of one screenlength is: " + (((endTime-startTime)-(pauseTimeCollected))/1000));
+				console.log("%cDuration of one screenlength is: " + (((endTime-startTime)-(pauseTimeCollected))/1000),"color: Green;");
 
 				startTime = endTime;
 				pauseTimeStart = pauseTimeStop = pauseTimeCollected = 0;
@@ -316,7 +316,7 @@ var player = (()=>{
 		}
 
 		function playAll(){
-			var treshhold = 12;
+			var treshhold = 10;
 
 			var diff = (endTime - startTime) - pauseTimeCollected;
 
@@ -331,8 +331,14 @@ var player = (()=>{
 						if(main.measure.measureArr[i]){
 							// console.log(soundArr[i]);
 							// console.log(main.measure.measureArr[i]);
-							console.log("Flooring "+ i + "/8: "+Math.floor(i/resolution));
-							soundArr[Math.floor(i/resolution)].play();
+							var index = Math.floor(i/resolution);
+							console.log("Flooring "+ i + "/resolution: "+Math.floor(i/resolution));
+							if(!soundArr[index].ended){
+								console.log(soundArr[index].ended);
+								soundArr[index].currentTime = 0;
+								soundArr[index].ended = true;
+							}
+							soundArr[index].play();
 							// break;
 						}
 
