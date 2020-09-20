@@ -1,21 +1,35 @@
-HerstadMusikk2020
+'''''''''''''''''''''''''''''''''
+''''	HerstadMusikk2020	 ''''
+'''''''''''''''''''''''''''''''''
 
 TRELLO
-Remember to use Trello.com
+Remember to use Trello.com - I've forgotten to use Trello - because I use git - but Trello would be useful
 
 []][][][][][][][][][][][][][][]
 	Working on now:
-	- Logo system - upload images 16x16px(save in db) - choose an avatar icon for your account
-	- MinKonto/Navn => logo replacement
-	- logo in right corner in mobile mode - userimage
+	- optimize code - clean code
+	- more IIFE's
+	- musiclab meets Incredibox - challenge(Incredibox uses one tempo on a project) - split project into musiclab or incredibox - mode
+	- firstactivity => back/forth-button + reset back to start-button
+		
+		- I found Web Audio API - That is was part of all browsers - A standard
+			- all previous work on firstActivity is paused, but the experices are still usefull
+			- firstactivity => rythmbank - record and put in folder - a far way to go
+
 []][][][][][][][][][][][][][][]
 	
 *********************************************************
 	Things I'll do:
+	- enter tempo manually
+	- Logo system - upload images 16x16px(save in db) - choose an avatar icon for your account
+	- MinKonto/Navn => logo replacement
+	- logo in right corner in mobile mode - userimage
 	- Expand the registration info (email(unique), username(unique), password, grade, logo(choose between two(owner, user))
 	- Expand login system - make it safer
 	- Sidebar
 	- focusSection - improve system so it is more versatile
+	- iframe musiclab?
+	- How do you compare localStorage and document.cookie?
 *********************************************************
 
 
@@ -87,6 +101,12 @@ Backend development
 *********************************************************
 	-
 	-
+	- firstactivity => calculate hit points for 'r'-button, now they're hardcoded
+	- firstactivity => play/stop-button - tempo-pluss/minus-button
+	- firstactivity => working on timer(bpm) vs graphics bar (four beats per bar)
+	- firstactivity => startTime, pressTime, pauseTimeStart, pauseTimeEnd, pauseTimeCollected(important to collect all paused time), endTime
+	- firstactivity => graphical display area
+	- firstactivity => rows with sounds from rythminstruments
 	- when you register, login as well
 	- make mailaddress apear in account email-input-field
 	- loggedInUserData - document.cookie - first version, simple - setCookie, getCookie, checkCookie

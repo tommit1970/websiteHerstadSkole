@@ -1,5 +1,5 @@
-// IIFE - Imediately Invoked Function Expression
-var navbarHandling = (function(){
+// IIFE - Imediately Invoked Function Expression - Ready
+var navbarHandling = (()=>{
 
 
 		var DOMstrings = {
@@ -8,6 +8,7 @@ var navbarHandling = (function(){
 				login: "login",
 				registration: "registration",
 				useraccount: "useraccount",
+				firstact: "firstActivity",
 				feedback: "feedback"
 			},
 			loginform: {
@@ -111,6 +112,8 @@ var navbarHandling = (function(){
 
 
 		function focusSection(clicked){
+			// put all the element-object in an array and run through it, turn off all except the chosen one
+
 
 			if(clicked === DOMstrings.sections.home){ // pretty hardcoded
 				document.getElementById(clicked).style.display = "block";
@@ -141,7 +144,7 @@ var navbarHandling = (function(){
 					// console.log(link);
 					focusSection(DOMstrings.sections.home); // too hardcoded ??
 					break;
-				case "Link 1":
+				case "first":
 					console.log(link);
 					break;
 				case "ULink 1".toLowerCase():
@@ -157,13 +160,13 @@ var navbarHandling = (function(){
 					// console.log(link);
 					focusSection(DOMstrings.sections.login); // too hardcoded ??
 					break;
-				case loggedInUserData.username.toLowerCase():
+				case main.loggedInUD.username.toLowerCase():
 					// console.log("Yes, it worked!");
 					focusSection(DOMstrings.sections.useraccount);
 					break;
 				case "logout":
 					// console.log(link);
-					logout();
+					logout.logout();
 					break;
 				default:
 					console.log("Button undefined");
