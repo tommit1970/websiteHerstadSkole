@@ -10,6 +10,7 @@ var player2 = (()=>{
 	var waAPIcanvas, waCanvasContext, animRequest, animOn = false;
 
 	waAPIcanvas = document.querySelector(".webAudioAPI_visualArea");
+	console.log("Width: "+waAPIcanvas.width);
 	waCanvasContext = waAPIcanvas.getContext("2d");
 
 	document.addEventListener("keydown", keyPressed);
@@ -87,7 +88,7 @@ var player2 = (()=>{
 
 })();
 
-console.log(player2.waCanContext);
+// console.log(player2.waCanContext);
 
 
 
