@@ -73,45 +73,7 @@ var player = (()=>{
 
 		var startTime, pressTime, pauseTimeStart = pauseTimeCollected = pauseTimeStop = 0, endTime;
 
-		document.addEventListener("keydown", keyPressed);
 
-		function keyPressed(evt){
-			console.log(evt.keyCode);
-
-			if(evt.keyCode === 32){
-				console.log("You pressed the spacebar");
-				togglePlayIt();
-
-			}
-
-			// var timeCodes = [0, 500, 1000, 1500, 2000]; // hardcoded, this should be calculated/adjusted on changes made to the tempo
-
-			if(evt.keyCode === 82){ // 'r'
-				pressTime = Date.now();
-
-				var diffTime = pressTime - startTime;
-				var hit = false;
-
-				// find the timeCode pressTime is closest to
-				for(var i = 0; i < timeCodesII.length; i++){
-					if(Math.abs(diffTime - timeCodesII[i]) < 50){
-						hit = true;
-					}
-				}
-
-				if(hit){
-					console.log("%c Innafor tidsgrensa " + ((pressTime-startTime)), "color: lime;");
-				}else{
-					console.log("%c Utafor tidsgrensa " + ((pressTime-startTime)), "color: red;");
-				}
-
-			}
-
-			if(evt.keyCode === 116){
-				location.reload(); // when evt.preventDefault()
-			}
-			// evt.preventDefault();
-		}
 
 		function togglePlayIt(){
 			// both spacebar and playbutton
@@ -164,7 +126,7 @@ var player = (()=>{
 			visualArea = document.querySelector(".visualArea");
 
 
-			// to get proper width and height of canvas - no scaling
+			// to get proper width and height of canvas - no scaleing
 
 			// mouse move
 			canvas.addEventListener("mousemove", mouseMove);
@@ -432,7 +394,8 @@ var player = (()=>{
 		return { // accessible from the outside
 			canHandling : canvasHandling,
 			canCtx : canvasContext,
-			tcII : timeCodesII
+			tcII : timeCodesII,
+			toggleAnim: togglePlayIt
 		}
 
 

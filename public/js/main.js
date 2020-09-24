@@ -6,7 +6,10 @@ var main = (function () {
     var measure = new Measure(2); // (resolutionPerBeat, beatsPerMeasure, numOfInstruments) => standard is (1, 4, 4)
 
     // console.log(measure.measureArr);
-
+    var activeTools = {
+      player: false,
+      player2: false
+    }
 
     // Data about logged in user
     var loggedInUserData = {
@@ -66,7 +69,8 @@ var main = (function () {
     return { // accessible from the outside
         loggedInUD : loggedInUserData,
         cookieCheck: checkCookie,
-        measure: measure
+        measure: measure,
+        actTools: activeTools
     }
 
 })(login);

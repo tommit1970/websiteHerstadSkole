@@ -9,19 +9,25 @@ var player2 = (()=>{
 
 	var waAPIcanvas, waCanvasContext, animRequest, animOn = false;
 
+	var audioContext = new 
+
 	waAPIcanvas = document.querySelector(".webAudioAPI_visualArea");
+	var visualArea2 = document.querySelector(".visualArea2");
+	// console.dir(visualArea2);
+	waAPIcanvas.width = visualArea2.clientWidth-1;
+	waAPIcanvas.height = visualArea2.clientHeight;
 	console.log("Width: "+waAPIcanvas.width);
 	waCanvasContext = waAPIcanvas.getContext("2d");
 
-	document.addEventListener("keydown", keyPressed);
+	// document.addEventListener("keydown", keyPressed);
 
-	function keyPressed(evt){
-		console.log(evt.keyCode);
-		if(evt.keyCode == 32){
-			console.log("Space pressed!");
-			toggleAnimation();
-		}
-	}
+	// function keyPressed(evt){
+	// 	console.log(evt.keyCode);
+	// 	if(evt.keyCode == 32){
+	// 		console.log("Space pressed");
+	// 		toggleAnimation();
+	// 	}
+	// }
 
 	function toggleAnimation(){
 		animOn ? animOn = false : animOn = true;
@@ -72,7 +78,7 @@ var player2 = (()=>{
 			chosen == 0 ? chosen = 1 : chosen = 0;
 			frameCounter = 0;
 		}
-
+		// drawn every frame - but changes every 10 frame because of the code above
 		drawFilledRectangle2(waCanvasContext,0,0,waAPIcanvas.width, waAPIcanvas.height, colorArr[chosen]);
 		frameCounter++;
 
@@ -82,7 +88,9 @@ var player2 = (()=>{
 
 	return {
 		waCanContext: waCanvasContext,
-		anim: animate2
+		waAPIcanvas: waAPIcanvas,
+		// anim: animate2,
+		toggleAnim: toggleAnimation
 
 	}
 

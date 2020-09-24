@@ -5,18 +5,22 @@
 TRELLO
 Remember to use Trello.com - I've forgotten to use Trello - because I use git - but Trello would be useful
 
-[]][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][]
 	Working on now:
-	- optimize code - clean code
-	- more IIFE's
+	- optimize code - clean code - always
+	- more IIFE's - close to done
+	- make a clean structure in the whole project
+
+
 	- musiclab meets Incredibox - challenge(Incredibox uses one tempo on a project) - split project into musiclab or incredibox - mode
-	- firstactivity => back/forth-button + reset back to start-button
+	
 		
 		- I found Web Audio API - That is was part of all browsers - A standard
 			- all previous work on firstActivity is paused, but the experices are still usefull
 			- firstactivity => rythmbank - record and put in folder - a far way to go
+		- firstactivity => back/forth-button + reset back to start-button
 
-[]][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][]
 	
 *********************************************************
 	Things I'll do:
