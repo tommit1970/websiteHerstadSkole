@@ -9,7 +9,7 @@ var player2 = (()=>{
 
 	var waAPIcanvas, waCanvasContext, animRequest, animOn = false;
 
-	var audioContext = new 
+	var audioContext = new AudioContext();
 
 	waAPIcanvas = document.querySelector(".webAudioAPI_visualArea");
 	var visualArea2 = document.querySelector(".visualArea2");
