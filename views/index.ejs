@@ -5,6 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HerstadMusikk2020</title>
 
+	<!-- CSS-pianoplayer -->
+	<link rel="stylesheet" href="./css/piano/controller.css">
+	<!-- CSS-pianoplayer -->
 	<link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="./css/navbar.css">
 	<link rel="stylesheet" href="./css/login.css">
@@ -211,6 +214,23 @@
 		</div>
 	</div>
 
+	<div id="pianocontainer">
+		<div class="scales"> <!-- PIANOPLAYER -->
+			<button class="left arrows">&lt;</button>
+			<div class="temperedscale">
+				<!-- content -->
+			</div>
+			<button class="right arrows">&gt;</button>
+		</div>  <!-- PIANOPLAYER -->
+		<div class="controlpanel">
+			<label for="removeblackkeys">Remove Black Keys</label>
+			<input type="checkbox" name="removeblackkeys" class="black_keys">
+		</div>
+	</div>
+
+
+
+
 	<div id="firstActivity" class="firstActivity">
 		<div class="instrumentArea">
 			<p class="instrument" id="inst1">Fløyte</p>
@@ -235,6 +255,9 @@
 			</div>
 		</div>
 	</div>
+
+
+
 
 	<!--Second Activity-->
 	<div id="webAudioAPI_container" class="webAudioAPI_container">
@@ -286,6 +309,10 @@
 
 
 </body>
+
+
+<script src="./js/piano/scaleClasses/TemperedScaleClass.js"></script>
+<script src="./js/piano/controller.js"></script>
 
 <script src="./js/input.js"></script>
 <script src="./js/navbar.js"></script>

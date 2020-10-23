@@ -1,0 +1,54 @@
+* {
+	/*margin: 0;*/
+	/*padding: 0;*/
+	box-sizing: border-box;
+}
+
+body {
+	background: #4f4;
+}
+
+#pianocontainer {
+	border: 1px solid maroon;
+	padding: 10px;
+	margin: 10px auto;
+	background: pink;
+}
+
+.scales button{
+	/*position: relative;*/
+	/*top: 10px;*/
+	cursor: pointer;
+	width: 50px;
+	height: 100px;
+	border: 1px black solid;
+	outline: none;
+
+}
+
+.s0, .s2, .s4, .s5, .s7, .s9, .s11, .s12 {
+	background: ivory;
+	z-index: 0;
+}
+
+
+.s1, .s3, .s6, .s8,.s10 {
+	background: ivory;
+	z-index: 10;
+
+}
+
+.black {
+	background: #888;
+	color: white;
+}
+
+.pressed {
+	background: gold;
+	color: black;
+}
+
+.temperedscale {
+	display: inline;
+
+}
