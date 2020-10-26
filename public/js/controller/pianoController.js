@@ -19,6 +19,7 @@ class InstrumentMaker{
 		this.temperedToneButtonsArray = [];
 		this.positionOfA = 0;
 		this.targetArray = [];
+		this.keysOn = false;
 	}
 
 	start(){
@@ -49,29 +50,32 @@ class InstrumentMaker{
 
 		// evt.preventDefault();
 
-		// A key is pressed and a tone should play
+		if(this.keysOn){
 
-		if(this.keyboardArrayASCII.includes(evt.keyCode)){
-			console.log("You pressed: " + String.fromCharCode(evt.keyCode)); // from keyCode to 'letter'
-			
-			var keyIndex = this.keyboardArrayASCII.indexOf(evt.keyCode);
-			// var currentButton = this.temperedToneButtonsArray[keyArrayIndex];
+			// A key is pressed and a tone should play
+
+			if(this.keyboardArrayASCII.includes(evt.keyCode)){
+				console.log("You pressed: " + String.fromCharCode(evt.keyCode)); // from keyCode to 'letter'
+				
+				var keyIndex = this.keyboardArrayASCII.indexOf(evt.keyCode);
+				// var currentButton = this.temperedToneButtonsArray[keyArrayIndex];
 
 
-			// There was a change in state for a button(pressed)
-			this.stateChange = true; // is this neccessary???????
+				// There was a change in state for a button(pressed)
+				this.stateChange = true; // is this neccessary???????
 
-			// console.log(this.keyboardStateArray);
+				// console.log(this.keyboardStateArray);
 
-			// Do something about the change
-			// if key is allready pressed - because of repetition on the EventListening - don't call this
-			if(!this.keyboardStateArray[keyIndex]){
+				// Do something about the change
+				// if key is allready pressed - because of repetition on the EventListening - don't call this
+				if(!this.keyboardStateArray[keyIndex]){
 
-				// console.log("You reached keyboardPlaySound");
-				// Set this key to on
-				this.keyboardStateArray[keyIndex] = 1;
-				// And start making this key's sound
-				this.playSound(this.temperedToneButtonsArray[keyIndex], keyIndex);
+					// console.log("You reached keyboardPlaySound");
+					// Set this key to on
+					this.keyboardStateArray[keyIndex] = 1;
+					// And start making this key's sound
+					this.playSound(this.temperedToneButtonsArray[keyIndex], keyIndex);
+				}
 			}
 		}
 	}
@@ -79,23 +83,26 @@ class InstrumentMaker{
 	keyboardStopSound(evt){
 		// evt.preventDefault();
 
-		// A key is released and a tone should stop
-
-		if(this.keyboardArrayASCII.includes(evt.keyCode)){
-			var keyIndex = this.keyboardArrayASCII.indexOf(evt.keyCode);
+		if(this.keysOn){
 			
+			// A key is released and a tone should stop
 
-			//  There was a change in state for a button(released)
-			this.stateChange = true; // is this neccessary
+			if(this.keyboardArrayASCII.includes(evt.keyCode)){
+				var keyIndex = this.keyboardArrayASCII.indexOf(evt.keyCode);
+				
 
-			// console.log(this.keyboardStateArray);
-			if(this.keyboardStateArray[keyIndex] != 0){
+				//  There was a change in state for a button(released)
+				this.stateChange = true; // is this neccessary
 
-				// console.log("You reached keyboardStopSound");
-				// Set this key to off			
-				this.keyboardStateArray[keyIndex] = 0;
-				// And stop making this key's sound
-				this.stopSound(this.temperedToneButtonsArray[keyIndex], keyIndex);
+				// console.log(this.keyboardStateArray);
+				if(this.keyboardStateArray[keyIndex] != 0){
+
+					// console.log("You reached keyboardStopSound");
+					// Set this key to off			
+					this.keyboardStateArray[keyIndex] = 0;
+					// And stop making this key's sound
+					this.stopSound(this.temperedToneButtonsArray[keyIndex], keyIndex);
+				}
 			}
 		}
 	}

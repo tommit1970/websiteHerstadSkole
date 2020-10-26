@@ -8,11 +8,12 @@ body {
 	background: #4f4;
 }
 
-#pianocontainer {
+#piano {
 	border: 1px solid maroon;
 	padding: 10px;
 	margin: 10px auto;
 	background: pink;
+	display: none;
 }
 
 .scales button{

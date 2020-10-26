@@ -9,7 +9,19 @@ var navbarHandling = (()=>{
 				registration: "registration",
 				useraccount: "useraccount",
 				firstact: "firstActivity",
-				feedback: "feedback"
+				waAPI: "webAudioAPI_container",
+				feedback: "feedback",
+				piano: "piano"
+			},
+			sectionsstyle: {
+				home: "block",
+				login: "block",
+				registration: "block",
+				useraccount: "grid",
+				firstact: "grid",
+				waAPI: "grid",
+				feedback: "block",
+				piano: "block"
 			},
 			loginform: {
 				username: "usernameLogin",
@@ -113,26 +125,15 @@ var navbarHandling = (()=>{
 
 		function focusSection(clicked){
 			// put all the element-object in an array and run through it, turn off all except the chosen one
-
-
-			if(clicked === DOMstrings.sections.home){ // pretty hardcoded
-				document.getElementById(clicked).style.display = "block";
-				document.getElementById(DOMstrings.sections.registration).style.display = "none";
-				document.getElementById(DOMstrings.sections.login).style.display = "none";
-				document.getElementById(DOMstrings.sections.useraccount).style.display = "none";
-			}else if(clicked === DOMstrings.sections.login){
-				document.getElementById(clicked).style.display = "block";
-				document.getElementById(DOMstrings.sections.registration).style.display = "none";
-				document.getElementById(DOMstrings.sections.home).style.display = "none";
-				document.getElementById(DOMstrings.sections.useraccount).style.display = "none";
-				document.getElementById(DOMstrings.loginform.username).focus();
-			}else if(clicked === DOMstrings.sections.useraccount){
-				document.getElementById(clicked).style.display = "grid";
-				document.getElementById(DOMstrings.sections.home).style.display = "none";
-				document.getElementById(DOMstrings.sections.login).style.display = "none";
-				document.getElementById(DOMstrings.sections.registration).style.display = "none";
+			
+			// run through the DOMstrings.sections-objects and .style.display = "none";
+			// console.log(DOMstrings.sections);
+			for(const property in DOMstrings.sections){
+				// console.log(property);
+				document.getElementById(DOMstrings.sections[property]).style.display = "none";
 			}
-
+			// display the clicked section
+			document.getElementById(DOMstrings.sections[clicked]).style.display = DOMstrings.sectionsstyle[clicked];
 		}
 
 		function whichLinkWasClickedAndWhatToDo(link){
@@ -143,9 +144,14 @@ var navbarHandling = (()=>{
 				case DOMstrings.sections.home:
 					// console.log(link);
 					focusSection(DOMstrings.sections.home); // too hardcoded ??
+					// turn of keyboard
+					instrument.keysOn = false;
 					break;
-				case "first":
-					console.log(link);
+				case DOMstrings.sections.piano:
+					// activate pianokeyboard - switch on
+					instrument.keysOn = true;
+					// handle current focus - show piano - visually
+					focusSection(DOMstrings.sections.piano);
 					break;
 				case "ULink 1".toLowerCase():
 					console.log(link);

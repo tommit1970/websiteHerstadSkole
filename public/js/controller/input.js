@@ -4,7 +4,7 @@ var inputModule = (()=>{
 	document.addEventListener('keydown', keyPressed);
 
 	function keyPressed(evt){
-		console.log(evt.keyCode);
+		// console.log(evt.keyCode);
 
 			// The spacebar options
 		if(evt.keyCode == 32){

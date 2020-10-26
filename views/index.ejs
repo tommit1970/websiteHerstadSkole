@@ -6,7 +6,7 @@
 	<title>HerstadMusikk2020</title>
 
 	<!-- CSS-pianoplayer -->
-	<link rel="stylesheet" href="./css/piano/controller.css">
+	<link rel="stylesheet" href="./css/piano/piano.css">
 	<!-- CSS-pianoplayer -->
 	<link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="./css/navbar.css">
@@ -16,7 +16,6 @@
 	<link rel="stylesheet" href="./css/useraccount.css">
 	<link rel="stylesheet" href="./css/firstactivity.css">
 	<link rel="stylesheet" href="./css/webAudioAPI.css">
-	
 	
 	<link rel="icon" href="http://icons.iconarchive.com/icons/wwalczyszyn/android-style-honeycomb/32/Music-icon.png">
 </head>
@@ -45,7 +44,7 @@
 									<label for="dropdown-toggle1" class="dropdown-toggle-label"><span>Utøve </span><i class="fa fa-caret-down"></i></label>
 									<input type="checkbox" id="dropdown-toggle1" class="dropdown-toggle">
 									<ul class="dropdown-content">
-										<li><a href="#2">First</a></li>
+										<li><a href="#2">Piano</a></li>
 										<li><a href="#2">Link 2</a></li>
 										<li><a href="#2">Link 3</a></li>
 									</ul>
@@ -92,17 +91,12 @@
 		</nav>
 	</header>
 
+	<div id="header">
+		<h1>HerstadMusikk2020</h1>
+	</div>
 
+	<!-- main screen -->
 	<main id="home">
-
-		<div id="header">
-			<h1>HerstadMusikk2020</h1>
-		</div>
-<!-- 		<div id="canvas">
-			<canvas width="400" height="200" id="canvas" style="display: none;">Your browser does not support canvas</canvas>
-			<button id="genButt" style="display: none;">AnythingButton</button>
-		</div> -->
-
 		<section id="gridings">
 			
 			<div id="recentElements" class="bigbox">
@@ -129,6 +123,7 @@
 
 	</main>
 
+	<!-- login -->
 	<div class="logreg" id="login">
 		<input type="text" id="usernameLogin" name="user" placeholder="username" maxlength="30">
 		<input type="password" id="passwordLogin" name="pass" placeholder="password" maxlength="15">
@@ -137,6 +132,7 @@
 		<div id="feedLogin"></div>
 	</div>
 
+	<!-- registration -->
 	<div class="logreg" id="registration">
 		<input type="text" id="usernameRegistration" name="user" placeholder="username" maxlength="30">
 		<input type="email" id="emailRegistration" name="mail" placeholder="user@email.com" maxlength="30">
@@ -145,6 +141,7 @@
 		<div id="feedRegistration"></div>
 	</div>
 
+	<!-- user -->
 	<div class="usercontainer" id="useraccount">
 		<div class="useraccountpersonal bordered">
 			<h4>
@@ -214,23 +211,26 @@
 		</div>
 	</div>
 
-	<div id="pianocontainer">
-		<div class="scales"> <!-- PIANOPLAYER -->
+	<!-- PIANOPLAYER -->
+	<div id="piano">
+		<div class="scales">
 			<button class="left arrows">&lt;</button>
 			<div class="temperedscale">
-				<!-- content -->
+				<!-- content - here goes buttons -->
 			</div>
 			<button class="right arrows">&gt;</button>
-		</div>  <!-- PIANOPLAYER -->
+		</div>
 		<div class="controlpanel">
 			<label for="removeblackkeys">Remove Black Keys</label>
 			<input type="checkbox" name="removeblackkeys" class="black_keys">
 		</div>
 	</div>
+	<!-- PIANOPLAYER -->
 
 
 
 
+	<!--First Activity-->
 	<div id="firstActivity" class="firstActivity">
 		<div class="instrumentArea">
 			<p class="instrument" id="inst1">Fløyte</p>
@@ -255,9 +255,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
 
 	<!--Second Activity-->
 	<div id="webAudioAPI_container" class="webAudioAPI_container">
@@ -311,22 +308,21 @@
 </body>
 
 
-<script src="./js/piano/scaleClasses/TemperedScaleClass.js"></script>
-<script src="./js/piano/controller.js"></script>
+<script src="./js/model/scaleClasses/piano_TemperedScaleClass.js"></script>
+<script src="./js/controller/pianoController.js"></script>
 
-<script src="./js/input.js"></script>
-<script src="./js/navbar.js"></script>
-<script src="./js/login.js"></script>
-<script src="./js/logout.js"></script>
-<script src="./js/register.js"></script>
-<script src="./js/feedbacks.js"></script>
-<script src="./js/firstactivity.js"></script>
-<script src="./js/graphicsCommon.js"></script>
-<script src="./js/graphicsCommonAdvanced.js"></script>
-<script src="./js/webAudioAPI.js"></script>
-<script src="./js/audio.js"></script>
-<script src="./js/measuresofmusic.js"></script>
-<script src="./js/main.js"></script>
+<script src="./js/controller/input.js"></script>
+<script src="./js/view/navbar.js"></script>
+<script src="./js/model/login.js"></script>
+<script src="./js/model/logout.js"></script>
+<script src="./js/model/register.js"></script>
+<script src="./js/model/beatbox_machine.js"></script>
+<script src="./js/model/beatbox_audio.js"></script>
+<script src="./js/view/beatbox_graphicsCommon.js"></script>
+<script src="./js/model/webAudioAPI.js"></script>
+<script src="./js/view/webAudioAPI_graphicsCommonAdvanced.js"></script>
+<script src="./js/model/measuresofmusic.js"></script>
+<script src="./js/model/main.js"></script>
 
 <script src="https://kit.fontawesome.com/a6255c2329.js" crossorigin="anonymous"></script>
 

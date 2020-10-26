@@ -28,5 +28,3 @@ class TemperedScale {
 		}
 	}
 }
-
-// module.exports = TemperedScale; // node.js stuff

@@ -7,9 +7,9 @@ Remember to use Trello.com - I've forgotten to use Trello - because I use git - 
 
 [][][][][][][][][][][][][][][][][]
 	Working on now:
-	- optimize code - clean code - always
-	- more IIFE's - close to done
-	- make a clean structure in the whole project
+	- class-style or IIFE-style - now I have both - maybe I'll try to make both - first IIFE-style, then class-style
+	- MVC structure - split a file into three if neccessary (model - view - controller)
+
 
 
 	- musiclab meets Incredibox - challenge(Incredibox uses one tempo on a project) - split project into musiclab or incredibox - mode
@@ -24,6 +24,8 @@ Remember to use Trello.com - I've forgotten to use Trello - because I use git - 
 	
 *********************************************************
 	Things I'll do:
+	- optimize code - clean code - more IIFE's - make a clean structure in the whole project
+	- implement PianoPlayer, also in the - input.js file
 	- enter tempo manually
 	- Logo system - upload images 16x16px(save in db) - choose an avatar icon for your account
 	- MinKonto/Navn => logo replacement

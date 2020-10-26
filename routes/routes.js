@@ -15,11 +15,12 @@ app.use(bodyP.json()); // using json-parsing with the body-parser, option is -> 
 var data = {
 	sitename: "websiteHerstadMusikk2020"
 }
-
-// The routes are:
+///////////////////////////////////////////////////////////////////////////////
+// The routes here are:
 	// Main - homepage - index.ejs
 	// Loginhandling
 	// Registrationhandling
+///////////////////////////////////////////////////////////////////////////////
 
 
 

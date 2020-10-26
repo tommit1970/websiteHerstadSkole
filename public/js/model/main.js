@@ -6,6 +6,10 @@ var main = (function () {
     var measure = new Measure(2); // (resolutionPerBeat, beatsPerMeasure, numOfInstruments) => standard is (1, 4, 4)
 
     // console.log(measure.measureArr);
+
+    // player => beatbox
+    // player2 => webAudioAPI
+
     var activeTools = {
       player: false,
       player2: false
@@ -76,6 +80,6 @@ var main = (function () {
 })(login);
 
 window.onload = function(){
-	main.cookieCheck();
-  player.canHandling();
+	main.cookieCheck(); // user - maintainance
+  player.canHandling(); // this can be activated when I want to use beatbox
 }

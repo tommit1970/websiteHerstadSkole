@@ -1,7 +1,7 @@
-.firstActivity {
+#firstActivity {
 	margin: 10px auto;
 	padding: 10px;
-	display: grid;
+	display: none;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(4,1fr);
 
