@@ -1,4 +1,4 @@
-console.log("Connected!");
+// console.log("Connected!");
 // global variables
 var audioCtx, gainNode, printGainValue, osc, oscArray;
 

@@ -9,6 +9,7 @@ Remember to use Trello.com - I've forgotten to use Trello - because I use git - 
 	Working on now:
 	- class-style or IIFE-style - now I have both - maybe I'll try to make both - first IIFE-style, then class-style
 	- MVC structure - split a file into three if neccessary (model - view - controller)
+	- modelStuff, viewStuff, controller - split all into one of these 'modules'
 
 
 

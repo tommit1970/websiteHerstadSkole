@@ -1,15 +1,39 @@
 // IIFE - Ready
 var login = (()=>{
 
-		document.getElementById(navbarHandling.DOM.loginform.gotoRegButton).addEventListener('click', prepareNewUserScreen);
+		// model
 
-		function prepareNewUserScreen(evt){
-			document.getElementById(navbarHandling.DOM.sections.login).style.display = "none";
-			document.getElementById(navbarHandling.DOM.sections.registration).style.display = "block";
+		// cookie-handling
+		function loginStuff(userData){
+
+			console.log(userData);
+			
+			// Go to homepage
+			navbarHandling.focusSection(navbarHandling.DOM.sections.home);
+			
+			// change login to logout
+			changeLogLinkTo("Logout");
+			
+			// User Visual
+			changeAccountToName(userData.username);
+			
+			// cookie
+			setCookie("username",userData.username, 2);
+			
+
+			// localStorage
+			localStorage.setItem("username", userData.username);
+			localStorage.setItem("email", userData.email);
+
+			// userdata
+			main.loggedInUD.username = localStorage.getItem("username");
+			main.loggedInUD.email = localStorage.getItem("email");
+			main.loggedInUD.loggedIn = true;
+
+			// visuals
+			document.getElementById("useraccountUsername").value = userData.username;
+			document.getElementById("useraccountEmail").value = userData.email;
 		}
-
-
-		document.getElementById(navbarHandling.DOM.loginform.loginButton).addEventListener('click', loginUser);
 
 
 		// AJAX code - Connecting to server routes
@@ -76,21 +100,6 @@ var login = (()=>{
 
 		}
 
-		function clearLogin(){
-			document.getElementById(navbarHandling.DOM.loginform.username).value = "";
-			document.getElementById(navbarHandling.DOM.loginform.password).value = "";
-
-		}
-
-		function changeLogLinkTo(logwhat){
-			document.getElementById(navbarHandling.DOM.linkIDs.logInOut).textContent = logwhat;
-		}
-
-		function changeAccountToName(account){
-			document.getElementById(navbarHandling.DOM.linkIDs.account).textContent = account;
-		}
-
-
 		function setCookie(cname, cvalue, exdays) {
 		  var d = new Date();
 		  d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -104,37 +113,42 @@ var login = (()=>{
 		}
 
 
+		// view
+		document.getElementById(navbarHandling.DOM.loginform.gotoRegButton).addEventListener('click', prepareNewUserScreen);
 
-		function loginStuff(userData){
-
-			console.log(userData);
-			
-			// Go to homepage
-			navbarHandling.focusSection(navbarHandling.DOM.sections.home);
-			
-			// change login to logout
-			changeLogLinkTo("Logout");
-			
-			// User Visual
-			changeAccountToName(userData.username);
-			
-			// cookie
-			setCookie("username",userData.username, 2);
-			
-
-			// localStorage
-			localStorage.setItem("username", userData.username);
-			localStorage.setItem("email", userData.email);
-
-			// userdata
-			main.loggedInUD.username = localStorage.getItem("username");
-			main.loggedInUD.email = localStorage.getItem("email");
-			main.loggedInUD.loggedIn = true;
-
-			// visuals
-			document.getElementById("useraccountUsername").value = userData.username;
-			document.getElementById("useraccountEmail").value = userData.email;
+		function prepareNewUserScreen(evt){
+			document.getElementById(navbarHandling.DOM.sections.login).style.display = "none";
+			document.getElementById(navbarHandling.DOM.sections.registration).style.display = "block";
 		}
+		document.getElementById(navbarHandling.DOM.loginform.loginButton).addEventListener('click', loginUser);
+
+		function clearLogin(){
+			document.getElementById(navbarHandling.DOM.loginform.username).value = "";
+			document.getElementById(navbarHandling.DOM.loginform.password).value = "";
+
+		}
+		function changeLogLinkTo(logwhat){
+			document.getElementById(navbarHandling.DOM.linkIDs.logInOut).textContent = logwhat;
+		}
+
+		function changeAccountToName(name){
+			document.getElementById(navbarHandling.DOM.linkIDs.account).textContent = name;
+		}
+
+
+		// controller
+
+
+
+
+
+
+
+
+
+
+
+
 
 		return { // accessible from the outside
 			chLogLink : changeLogLinkTo,
