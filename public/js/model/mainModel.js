@@ -1,6 +1,6 @@
 var modelStuff = (()=>{
 
-	// Everything in here has to do with the Stucture the App, including the Data
+	// Everything in here has to do with the Business-side of the App, including the Data
 
 	// model variables
 	let someVar = 'usefull';
